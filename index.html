@@ -1,0 +1,3130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codelara</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#7c3aed">
+    <meta name="msapplication-TileColor" content="#7c3aed">
+    <meta name="theme-color" content="#7c3aed">
+    
+    <!-- Fallback SVG favicon (using inline SVG) -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%237c3aed%22>🚀</text></svg>">
+    
+    <!-- Fallback PNG favicon (using inline base64) -->
+    <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiByeD0iMjAiIGZpbGw9IiM3YzNhZWQiLz4KPHRleHQgeD0iNTAiIHk9IjU1IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iNDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IndoaXRlIj5DPC90ZXh0Pgo8L3N2Zz4=">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'purple-primary': '#7c3aed',
+                        'purple-dark': '#6d28d9',
+                        'purple-50': '#f5f3ff',
+                        'purple-100': '#ede9fe',
+                        'purple-200': '#ddd6fe',
+                        'purple-400': '#a78bfa',
+                        'purple-600': '#7c3aed',
+                    },
+                    fontFamily: {
+                        'sora': ['Sora', 'system-ui', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'float-delayed': 'float 6s ease-in-out infinite 1s',
+                        'float-slow': 'float 8s ease-in-out infinite 0.5s',
+                        'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
+                        'text-gradient': 'text-gradient 3s ease infinite',
+                        'slide-up': 'slide-up 0.8s ease-out',
+                        'scale-in': 'scale-in 0.6s ease-out',
+                        'fade-in': 'fade-in 0.8s ease-out',
+                        'typing': 'typing 3.5s steps(40, end), blink-caret .75s step-end infinite',
+                        'blink-caret': 'blink-caret 0.75s step-end infinite',
+                        'shine': 'shine 3s ease-in-out infinite',
+                        'bounce-subtle': 'bounce-subtle 2s infinite',
+                        'ripple': 'ripple 0.6s linear',
+                        'count-up': 'count-up 2s ease-out forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        'pulse-glow': {
+                            '0%, 100%': { 
+                                opacity: '1',
+                                boxShadow: '0 0 20px rgba(124, 58, 237, 0.2)'
+                            },
+                            '50%': { 
+                                opacity: '0.8',
+                                boxShadow: '0 0 40px rgba(124, 58, 237, 0.4)'
+                            },
+                        },
+                        'text-gradient': {
+                            '0%, 100%': {
+                                'background-position': '0% 50%',
+                            },
+                            '50%': {
+                                'background-position': '100% 50%',
+                            },
+                        },
+                        'slide-up': {
+                            '0%': {
+                                transform: 'translateY(30px)',
+                                opacity: '0'
+                            },
+                            '100%': {
+                                transform: 'translateY(0)',
+                                opacity: '1'
+                            },
+                        },
+                        'scale-in': {
+                            '0%': {
+                                transform: 'scale(0.9)',
+                                opacity: '0'
+                            },
+                            '100%': {
+                                transform: 'scale(1)',
+                                opacity: '1'
+                            },
+                        },
+                        'fade-in': {
+                            '0%': {
+                                opacity: '0'
+                            },
+                            '100%': {
+                                opacity: '1'
+                            },
+                        },
+                        typing: {
+                            'from': { width: '0' },
+                            'to': { width: '100%' }
+                        },
+                        'blink-caret': {
+                            'from, to': { 'border-color': 'transparent' },
+                            '50%': { 'border-color': '#7c3aed' }
+                        },
+                        shine: {
+                            '0%': { transform: 'translateX(-100%) rotate(45deg)' },
+                            '100%': { transform: 'translateX(200%) rotate(45deg)' }
+                        },
+                        'bounce-subtle': {
+                            '0%, 100%': { 
+                                transform: 'translateY(0)',
+                                'animation-timing-function': 'cubic-bezier(0.8, 0, 1, 1)'
+                            },
+                            '50%': { 
+                                transform: 'translateY(-10px)',
+                                'animation-timing-function': 'cubic-bezier(0, 0, 0.2, 1)'
+                            },
+                        },
+                        ripple: {
+                            'to': {
+                                transform: 'scale(4)',
+                                opacity: '0'
+                            }
+                        },
+                        'count-up': {
+                            'from': { 
+                                opacity: '0',
+                                transform: 'translateY(10px)'
+                            },
+                            'to': { 
+                                opacity: '1',
+                                transform: 'translateY(0)'
+                            }
+                        }
+                    },
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Hero Section Specific Styles */
+        .hero-container {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #7c3aed 0%, #a78bfa 50%, #7c3aed 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 200% 200%;
+            animation: text-gradient 3s ease infinite;
+        }
+        
+        .floating-shape {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(167, 139, 250, 0.05));
+            backdrop-filter: blur(10px);
+            z-index: 1;
+        }
+        
+        .shape-1 {
+            width: 300px;
+            height: 300px;
+            top: -150px;
+            right: -100px;
+            animation: float 8s ease-in-out infinite;
+        }
+        
+        .shape-2 {
+            width: 200px;
+            height: 200px;
+            bottom: -80px;
+            left: -80px;
+            animation: float 6s ease-in-out infinite 0.5s;
+        }
+        
+        .shape-3 {
+            width: 150px;
+            height: 150px;
+            top: 40%;
+            left: 5%;
+            animation: float 7s ease-in-out infinite 0.2s;
+        }
+        
+        .hero-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(167, 139, 250, 0.05));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(124, 58, 237, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-badge::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to bottom right,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0.1) 50%,
+                rgba(255, 255, 255, 0) 100%
+            );
+            transform: rotate(45deg);
+            animation: shine 3s ease-in-out infinite;
+        }
+        
+        .hero-title {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-description {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-buttons {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .code-line {
+            position: absolute;
+            color: rgba(124, 58, 237, 0.1);
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            z-index: 1;
+        }
+        
+        .line-1 {
+            top: 20%;
+            left: 5%;
+            animation: float 10s ease-in-out infinite;
+        }
+        
+        .line-2 {
+            top: 60%;
+            right: 10%;
+            animation: float 9s ease-in-out infinite 0.3s;
+        }
+        
+        .line-3 {
+            bottom: 30%;
+            left: 15%;
+            animation: float 11s ease-in-out infinite 0.7s;
+        }
+        
+        .ai-pulse {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(135deg, #7c3aed, #a78bfa);
+            border-radius: 50%;
+            filter: blur(5px);
+            animation: pulse-glow 2s ease-in-out infinite;
+            z-index: 1;
+        }
+        
+        .pulse-1 {
+            top: 30%;
+            right: 20%;
+        }
+        
+        .pulse-2 {
+            bottom: 40%;
+            left: 20%;
+            animation-delay: 0.5s;
+        }
+        
+        .hero-cta {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-cta::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.2) 50%, transparent 70%);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+        
+        .hero-cta:hover::after {
+            transform: translateX(100%);
+        }
+        
+        .animated-arrow {
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+        
+        .hero-cta:hover .animated-arrow {
+            transform: translateX(5px);
+        }
+        
+        .typewriter-container {
+            display: inline-block;
+            position: relative;
+        }
+        
+        .typewriter-text {
+            overflow: hidden;
+            border-right: 3px solid #7c3aed;
+            white-space: nowrap;
+            animation: typing 3.5s steps(40, end) 1s 1 normal both,
+                       blink-caret 0.75s step-end infinite;
+        }
+        
+        @media (max-width: 768px) {
+            .shape-1, .shape-2, .shape-3 {
+                display: none;
+            }
+            
+            .code-line {
+                font-size: 10px;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+        }
+        
+        /* Subtle scroll indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            opacity: 0;
+            animation: fade-in 1s ease-out 2s forwards;
+        }
+        
+        .mouse {
+            width: 26px;
+            height: 40px;
+            border: 2px solid rgba(124, 58, 237, 0.3);
+            border-radius: 20px;
+            position: relative;
+            margin: 0 auto;
+        }
+        
+        .mouse::before {
+            content: '';
+            width: 4px;
+            height: 8px;
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #7c3aed;
+            border-radius: 2px;
+            animation: bounce-subtle 2s infinite;
+        }
+        
+        /* Particle background */
+        .particles-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .particle {
+            position: absolute;
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(167, 139, 250, 0.05));
+            border-radius: 50%;
+        }
+        
+        /* Counter animation */
+        .counter-item {
+            opacity: 0;
+            transform: translateY(10px);
+            animation: count-up 1s ease-out forwards;
+        }
+        
+        .counter-item:nth-child(1) { animation-delay: 0.8s; }
+        .counter-item:nth-child(2) { animation-delay: 0.9s; }
+        .counter-item:nth-child(3) { animation-delay: 1.0s; }
+        .counter-item:nth-child(4) { animation-delay: 1.1s; }
+        
+        /* Existing styles remain... */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #7c3aed;
+            border-radius: 10px;
+        }
+        
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #6d28d9;
+        }
+        
+        .recording {
+            background-color: #fee2e2 !important;
+            border-color: #ef4444 !important;
+            color: #dc2626 !important;
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+        }
+        
+        .transition-all {
+            transition-property: all;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 300ms;
+        }
+        
+        /* Custom Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            padding: 20px;
+            backdrop-filter: blur(5px);
+        }
+        
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .modal-content {
+            background: white;
+            border-radius: 24px;
+            padding: 40px;
+            max-width: 600px;
+            width: 90%;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            max-height: 90vh;
+            overflow-y: auto;
+            font-size: clamp(14px, 1.5vw, 16px);
+        }
+        
+        .modal-overlay.active .modal-content {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        /* Social Media Modal Specific */
+        #socialMediaModal .modal-content,
+        #courseEnrollModal .modal-content,
+        #legalModal .modal-content {
+            max-width: 450px;
+        }
+        
+        .social-option {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 20px;
+            border: 2px solid #e5e7eb;
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 12px;
+        }
+        
+        .social-option:hover {
+            border-color: #7c3aed;
+            background-color: #f5f3ff;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(124, 58, 237, 0.1);
+        }
+        
+        .social-option.selected {
+            border-color: #7c3aed;
+            background-color: #f5f3ff;
+        }
+        
+        .social-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+        
+        .whatsapp-icon {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+        }
+        
+        .telegram-icon {
+            background: linear-gradient(135deg, #0088cc, #00aced);
+            color: white;
+        }
+        
+        .contact-number {
+            font-family: monospace;
+            background: #f3f4f6;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 14px;
+            color: #374151;
+            border: 1px solid #e5e7eb;
+        }
+        
+        /* Service Details Modal */
+        #serviceDetailsModal .modal-content {
+            max-width: 550px;
+        }
+        
+        .service-detail-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 16px;
+            padding: 12px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+        
+        .service-detail-item:hover {
+            background-color: #f9fafb;
+        }
+        
+        .service-detail-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #7c3aed, #a78bfa);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        /* Course Price Styling */
+        .course-price {
+            font-family: 'Sora', sans-serif;
+            font-weight: bold;
+            color: #7c3aed;
+            position: relative;
+        }
+        
+        .course-price::before {
+            content: '₦';
+            margin-right: 2px;
+        }
+        
+        /* Course Image Styling */
+        .course-image {
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            transition: all 0.3s ease;
+        }
+        
+        .course-image:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Responsive Modal Styles */
+        @media (max-width: 768px) {
+            .modal-content {
+                padding: 24px;
+                width: 95%;
+                margin: 20px;
+                border-radius: 20px;
+            }
+            
+            #aiFeaturesModal .modal-content {
+                padding: 20px;
+                max-width: calc(100vw - 40px);
+                max-height: 85vh;
+            }
+            
+            /* Single column layout for small screens */
+            #aiFeaturesModal .modal-content .grid {
+                grid-template-columns: 1fr !important;
+            }
+            
+            /* Smaller font sizes for mobile */
+            #aiFeaturesModal .modal-content h3 {
+                font-size: 1.5rem;
+            }
+            
+            #aiFeaturesModal .modal-content p.text-lg {
+                font-size: 1rem;
+            }
+            
+            /* Reduce floating icon size */
+            #aiFeaturesModal .modal-content .floating-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 2rem;
+            }
+            
+            /* Adjust feature boxes padding */
+            #aiFeaturesModal .modal-content .flex.items-start.gap-3 {
+                padding: 16px;
+            }
+            
+            /* Email subscription on mobile */
+            #aiFeaturesModal .modal-content .flex.gap-2 {
+                flex-direction: column;
+                gap: 12px;
+            }
+            
+            #aiFeaturesModal .modal-content input[type="email"] {
+                width: 100%;
+            }
+            
+            #aiFeaturesModal .modal-content button {
+                width: 100%;
+            }
+            
+            /* Reduce scroll area height */
+            #aiFeaturesModal .modal-content .max-h-96 {
+                max-height: 60vh;
+            }
+            
+            /* Additional features grid adjustment */
+            #aiFeaturesModal .modal-content .grid.grid-cols-2.md\:grid-cols-3 {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+                font-size: 0.75rem;
+            }
+            
+            /* Close button adjustments */
+            .close-modal-btn {
+                width: 36px;
+                height: 36px;
+                top: 12px;
+                right: 12px;
+                font-size: 28px;
+            }
+            
+            /* Social options mobile */
+            .social-option {
+                padding: 16px;
+            }
+            
+            .social-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+            }
+            
+            .contact-number {
+                font-size: 12px;
+                padding: 6px 10px;
+            }
+        }
+        
+        /* Extra small devices */
+        @media (max-width: 480px) {
+            #aiFeaturesModal .modal-content {
+                padding: 16px;
+                border-radius: 16px;
+            }
+            
+            #aiFeaturesModal .modal-content .w-24 {
+                width: 48px;
+                height: 48px;
+            }
+            
+            #aiFeaturesModal .modal-content .text-3xl {
+                font-size: 1.25rem;
+            }
+            
+            #aiFeaturesModal .modal-content .text-lg {
+                font-size: 0.875rem;
+            }
+            
+            /* Make feature boxes more compact */
+            #aiFeaturesModal .modal-content .flex.items-start.gap-3 {
+                padding: 12px;
+            }
+            
+            #aiFeaturesModal .modal-content .text-xl {
+                font-size: 1.125rem;
+            }
+            
+            #aiFeaturesModal .modal-content .text-sm {
+                font-size: 0.75rem;
+            }
+            
+            /* Social modal mobile */
+            #socialMediaModal .modal-content,
+            #courseEnrollModal .modal-content {
+                padding: 20px;
+            }
+            
+            .social-option {
+                flex-direction: column;
+                text-align: center;
+                gap: 12px;
+            }
+            
+            .social-details {
+                text-align: center;
+            }
+        }
+        
+        /* Tablet and Desktop Optimization */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .modal-content {
+                padding: 32px;
+                width: 85%;
+            }
+            
+            #aiFeaturesModal .modal-content {
+                max-width: 500px;
+            }
+            
+            /* Adjust grid layout for tablet */
+            #aiFeaturesModal .modal-content .grid {
+                gap: 16px;
+            }
+            
+            /* Adjust feature boxes for tablet */
+            #aiFeaturesModal .modal-content .flex.items-start.gap-3 {
+                padding: 14px;
+            }
+            
+            /* Smaller floating icon for tablet */
+            #aiFeaturesModal .modal-content .floating-icon {
+                width: 80px;
+                height: 80px;
+                font-size: 3rem;
+            }
+        }
+        
+        /* Large Desktop Screens */
+        @media (min-width: 1025px) {
+            #aiFeaturesModal .modal-content {
+                max-width: 700px;
+            }
+            
+            /* Adjust grid for larger screens */
+            #aiFeaturesModal .modal-content .grid {
+                gap: 20px;
+            }
+        }
+        
+        /* Better scrollbar for modal content */
+        .modal-content .custom-scrollbar {
+            scrollbar-width: thin;
+            scrollbar-color: #7c3aed #f1f1f1;
+        }
+        
+        /* Adjust heading sizes responsively */
+        .modal-content h3 {
+            font-size: clamp(1.5rem, 2.5vw, 2rem);
+        }
+        
+        /* Responsive close button */
+        .close-modal-btn {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            position: absolute;
+            top: 4px;
+            right: 4px;
+            color: #9ca3af;
+            cursor: pointer;
+            border: none;
+            background: none;
+            z-index: 10;
+            transition: color 0.3s ease;
+        }
+        
+        .close-modal-btn:hover {
+            color: #6b7280;
+        }
+        
+        /* Landscape mode optimization */
+        @media (max-height: 600px) and (orientation: landscape) {
+            #aiFeaturesModal .modal-content {
+                max-height: 80vh;
+                overflow-y: auto;
+            }
+            
+            #aiFeaturesModal .modal-content .max-h-96 {
+                max-height: 40vh;
+            }
+        }
+        
+        /* Prevent horizontal overflow */
+        .modal-content {
+            max-width: min(600px, calc(100vw - 40px));
+        }
+        
+        /* Rotate class for FAQ icons */
+        .rotate-45 {
+            transform: rotate(45deg);
+        }
+        
+        /* Copy to clipboard button */
+        .copy-btn {
+            padding: 8px 16px;
+            background: #7c3aed;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .copy-btn:hover {
+            background: #6d28d9;
+            transform: translateY(-1px);
+        }
+        
+        .copy-btn.copied {
+            background: #10b981;
+        }
+        
+        /* Course Enrollment Modal */
+        .course-enroll-info {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 20px;
+            border-left: 4px solid #7c3aed;
+        }
+        
+        .course-enroll-title {
+            font-family: 'Sora', sans-serif;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 8px;
+        }
+        
+        .course-enroll-price {
+            font-family: 'Sora', sans-serif;
+            font-weight: 700;
+            color: #7c3aed;
+            font-size: 1.5rem;
+        }
+        
+        /* Legal Modal Styling */
+        .legal-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 20px;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 2px solid #e5e7eb;
+        }
+        
+        .legal-item:hover {
+            border-color: #7c3aed;
+            background-color: #f5f3ff;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(124, 58, 237, 0.1);
+        }
+        
+        .legal-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            background: linear-gradient(135deg, #7c3aed, #a78bfa);
+            color: white;
+            flex-shrink: 0;
+        }
+        
+        .legal-content {
+            flex: 1;
+        }
+        
+        .legal-title {
+            font-family: 'Sora', sans-serif;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 8px;
+            font-size: 1.125rem;
+        }
+        
+        .legal-description {
+            color: #4b5563;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body class="font-sans">
+    <!-- Custom Modal for AI Features -->
+    <div id="aiFeaturesModal" class="modal-overlay">
+        <div class="modal-content">
+            <button id="closeAiModal" class="close-modal-btn">
+                &times;
+            </button>
+            <div class="text-center">
+                <div class="w-24 h-24 mx-auto mb-6 rounded-full bg-gradient-to-br from-purple-primary to-purple-400 flex items-center justify-center text-white text-4xl floating-icon">
+                    🤖
+                </div>
+                <h3 class="font-sora text-3xl font-bold text-gray-900 mb-4">AI-Powered Development Platform</h3>
+                <p class="text-gray-600 mb-2 text-lg">
+                    <span class="font-bold text-purple-primary">Coming Soon!</span> Here's what you can expect:
+                </p>
+                
+                <!-- Features List -->
+                <div class="mt-8 text-left max-h-96 overflow-y-auto custom-scrollbar pr-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <!-- Column 1 -->
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-3 p-4 bg-purple-50 rounded-xl border border-purple-100">
+                                <div class="text-purple-primary text-xl mt-1">⚡</div>
+                                <div>
+                                    <h4 class="font-sora font-semibold text-gray-900 mb-1">Laravel Code Generator</h4>
+                                    <p class="text-sm text-gray-600">Generate complete Laravel applications with MVC structure</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start gap-3 p-4 bg-purple-50 rounded-xl border border-purple-100">
+                                <div class="text-purple-primary text-xl mt-1">🔌</div>
+                                <div>
+                                    <h4 class="font-sora font-semibold text-gray-900 mb-1">Complete API Suite</h4>
+                                    <p class="text-sm text-gray-600">Pre-built APIs for auth, payments, notifications, and more</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start gap-3 p-4 bg-purple-50 rounded-xl border border-purple-100">
+                                <div class="text-purple-primary text-xl mt-1">💳</div>
+                                <div>
+                                    <h4 class="font-sora font-semibold text-gray-900 mb-1">Payment Gateways</h4>
+                                    <p class="text-sm text-gray-600">Stripe, PayPal, Razorpay integration out of the box</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start gap-3 p-4 bg-purple-50 rounded-xl border border-purple-100">
+                                <div class="text-purple-primary text-xl mt-1">🧩</div>
+                                <div>
+                                    <h4 class="font-sora font-semibold text-gray-900 mb-1">Drag & Drop AI Builder</h4>
+                                    <p class="text-sm text-gray-600">Visual builder with AI-powered component suggestions</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Column 2 -->
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-3 p-4 bg-purple-50 rounded-xl border border-purple-100">
+                                <div class="text-purple-primary text-xl mt-1">👨‍💻</div>
+                                <div>
+                                    <h4 class="font-sora font-semibold text-gray-900 mb-1">Real-time Code Editor</h4>
+                                    <p class="text-sm text-gray-600">Collaborate with team members in real-time</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start gap-3 p-4 bg-purple-50 rounded-xl border border-purple-100">
+                                <div class="text-purple-primary text-xl mt-1">👥</div>
+                                <div>
+                                    <h4 class="font-sora font-semibold text-gray-900 mb-1">Friend Collaboration</h4>
+                                    <p class="text-sm text-gray-600">Invite friends to collaborate on your projects</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start gap-3 p-4 bg-purple-50 rounded-xl border border-purple-100">
+                                <div class="text-purple-primary text-xl mt-1">🚀</div>
+                                <div>
+                                    <h4 class="font-sora font-semibold text-gray-900 mb-1">Built-in Hosting</h4>
+                                    <p class="text-sm text-gray-600">Deploy your projects instantly with our hosting</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start gap-3 p-4 bg-purple-50 rounded-xl border border-purple-100">
+                                <div class="text-purple-primary text-xl mt-1">🎮</div>
+                                <div>
+                                    <h4 class="font-sora font-semibold text-gray-900 mb-1">PS5-Quality Game AI</h4>
+                                    <p class="text-sm text-gray-600">Generate high-quality game assets and mechanics</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Additional Features -->
+                    <div class="mt-6 p-6 bg-gradient-to-r from-purple-primary/10 to-purple-400/10 rounded-xl border border-purple-200">
+                        <h4 class="font-sora font-semibold text-purple-primary mb-2">And much more...</h4>
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-2 text-sm text-gray-600">
+                            <span class="flex items-center gap-1">✓ AI Database Design</span>
+                            <span class="flex items-center gap-1">✓ Auto SEO Optimization</span>
+                            <span class="flex items-center gap-1">✓ 3D Model Generation</span>
+                            <span class="flex items-center gap-1">✓ Voice Commands</span>
+                            <span class="flex items-center gap-1">✓ Smart Analytics</span>
+                            <span class="flex items-center gap-1">✓ Auto Security</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Email Subscription -->
+                <div class="mt-8 pt-6 border-t border-gray-200">
+                    <p class="text-gray-600 mb-4">Get notified when we launch!</p>
+                    <div class="flex gap-2 max-w-md mx-auto">
+                        <input type="email" placeholder="Enter your email" class="flex-1 px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-purple-primary focus:ring-2 focus:ring-purple-primary/20">
+                        <button class="px-6 py-3 bg-gradient-to-r from-purple-primary to-purple-600 text-white font-medium rounded-xl cursor-pointer transition-all duration-300 hover:shadow-lg hover:shadow-purple-primary/25 hover:-translate-y-0.5">
+                            Notify Me
+                        </button>
+                    </div>
+                </div>
+                
+                <p class="text-gray-400 text-sm mt-6">
+                    Estimated Launch: Q3 2026
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Simple Coming Soon Modal -->
+    <div id="comingSoonModal" class="modal-overlay">
+        <div class="modal-content" style="max-width: 400px;">
+            <button id="closeModal" class="close-modal-btn">
+                &times;
+            </button>
+            <div class="text-center">
+                <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-purple-primary to-purple-400 flex items-center justify-center text-white text-3xl floating-icon">
+                    ✨
+                </div>
+                <h3 class="font-sora text-2xl font-bold text-gray-900 mb-3">Coming Soon!</h3>
+                <p class="text-gray-600 mb-8">
+                    We're working hard to bring you this amazing feature. Stay tuned for updates!
+                </p>
+                <button id="confirmCloseModal" class="w-full py-3 px-6 bg-gradient-to-r from-purple-primary to-purple-600 text-white font-medium rounded-xl cursor-pointer transition-all duration-300 hover:shadow-lg hover:shadow-purple-primary/25 hover:-translate-y-0.5">
+                    Got it!
+                </button>
+                <p class="text-gray-400 text-sm mt-4">
+                    Follow us for updates on new features
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Social Media Contact Modal -->
+    <div id="socialMediaModal" class="modal-overlay">
+        <div class="modal-content">
+            <button id="closeSocialModal" class="close-modal-btn">
+                &times;
+            </button>
+            <div class="text-center">
+                <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-purple-primary to-purple-400 flex items-center justify-center text-white text-3xl floating-icon">
+                    📱
+                </div>
+                <h3 class="font-sora text-2xl font-bold text-gray-900 mb-2" id="socialModalTitle">Contact Our Team</h3>
+                <p class="text-gray-600 mb-6" id="socialModalDescription">
+                    Choose how you'd like to contact us. Our team is available to discuss your project requirements.
+                </p>
+                
+                <!-- Social Options -->
+                <div class="space-y-4 mb-8">
+                    <!-- WhatsApp Option -->
+                    <div class="social-option" data-platform="whatsapp" data-number="+2348141560632">
+                        <div class="social-icon whatsapp-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.76.982.998-3.675-.236-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.9 6.994c-.004 5.45-4.438 9.88-9.888 9.88m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.333.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.333 11.893-11.893 0-3.18-1.24-6.162-3.495-8.411"/>
+                            </svg>
+                        </div>
+                        <div class="social-details flex-1 text-left">
+                            <h4 class="font-sora font-semibold text-gray-900 mb-1">WhatsApp</h4>
+                            <p class="text-sm text-gray-600 mb-2">Chat with us directly on WhatsApp</p>
+                            <div class="flex items-center gap-3">
+                                <span class="contact-number">+234 814 156 0632</span>
+                                <button class="copy-btn" data-number="+2348141560632">Copy</button>
+                            </div>
+                        </div>
+                        <div class="text-purple-primary text-xl">
+                            →
+                        </div>
+                    </div>
+                    
+                    <!-- Telegram Option -->
+                    <div class="social-option" data-platform="telegram" data-number="+2348141560632">
+                        <div class="social-icon telegram-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.197c-.174-.413-.494-.767-.862-.944-2.357-1.057-9.82-4.2-10.27-4.356-.31-.108-.65-.15-.948.042-.293.19-.461.519-.461.884v.215c.056 1.491.706 10.861.817 11.957.058.567.303 1.13.707 1.542.389.393.896.586 1.417.586.212 0 .426-.031.625-.092 1.848-.582 9.386-3.957 10.102-4.304.515-.255.727-.843.558-1.374l-2.156-6.577zM8.184 13.097l3.741 2.499c.218.146.486.22.75.22.286 0 .571-.085.817-.25l.116-.084 2.983-2.039c.025-.017.056-.013.078.008l1.39 1.214c.065.057.016.179-.075.168l-5.226-.639c-.031-.004-.058.018-.058.049l-.328 4.322c-.009.118-.166.146-.223.034l-1.923-3.378c-.009-.016-.004-.034.009-.047l1.301-1.544c.009-.011.004-.028-.011-.035l-3.168-1.325c-.113-.047-.094-.196.023-.224l4.286-.885c.032-.007.052-.036.044-.068l-.744-2.93c-.02-.08.097-.131.153-.062l4.32 5.013c.052.06.016.151-.065.151l-1.666.007c-.033 0-.062.022-.069.054l-.599 2.016c-.02.067-.111.095-.161.047l-2.076-1.999c-.013-.013-.033-.016-.049-.008l-4.429 2.681c-.083.05-.189-.025-.156-.114l1.641-4.435c.013-.035-.009-.072-.047-.072l-2.091.007c-.082 0-.123-.098-.058-.154z"/>
+                            </svg>
+                        </div>
+                        <div class="social-details flex-1 text-left">
+                            <h4 class="font-sora font-semibold text-gray-900 mb-1">Telegram</h4>
+                            <p class="text-sm text-gray-600 mb-2">Message us on Telegram</p>
+                            <div class="flex items-center gap-3">
+                                <span class="contact-number">+234 814 156 0632</span>
+                                <button class="copy-btn" data-number="+2348141560632">Copy</button>
+                            </div>
+                        </div>
+                        <div class="text-purple-primary text-xl">
+                            →
+                        </div>
+                    </div>
+                </div>
+                
+                <p class="text-gray-500 text-sm">
+                    Click on your preferred option to open the chat or copy the number
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Course Enrollment Modal -->
+    <div id="courseEnrollModal" class="modal-overlay">
+        <div class="modal-content">
+            <button id="closeCourseModal" class="close-modal-btn">
+                &times;
+            </button>
+            <div class="text-center">
+                <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-purple-primary to-purple-400 flex items-center justify-center text-white text-3xl floating-icon">
+                    🎓
+                </div>
+                <h3 class="font-sora text-2xl font-bold text-gray-900 mb-2">Enroll in Course</h3>
+                <p class="text-gray-600 mb-6">
+                    Contact us to enroll in this course and start your learning journey.
+                </p>
+                
+                <!-- Course Info -->
+                <div class="course-enroll-info" id="courseEnrollInfo">
+                    <h4 class="course-enroll-title" id="courseEnrollTitle">Course Title</h4>
+                    <div class="course-enroll-price" id="courseEnrollPrice">₦0</div>
+                </div>
+                
+                <!-- Social Options -->
+                <div class="space-y-4 mb-8">
+                    <!-- WhatsApp Option -->
+                    <div class="social-option" data-platform="whatsapp" data-number="+2348141560632">
+                        <div class="social-icon whatsapp-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.76.982.998-3.675-.236-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.9 6.994c-.004 5.45-4.438 9.88-9.888 9.88m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.333.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.333 11.893-11.893 0-3.18-1.24-6.162-3.495-8.411"/>
+                            </svg>
+                        </div>
+                        <div class="social-details flex-1 text-left">
+                            <h4 class="font-sora font-semibold text-gray-900 mb-1">WhatsApp</h4>
+                            <p class="text-sm text-gray-600 mb-2">Chat with us on WhatsApp to enroll</p>
+                            <div class="flex items-center gap-3">
+                                <span class="contact-number">+234 814 156 0632</span>
+                                <button class="copy-btn" data-number="+2348141560632">Copy</button>
+                            </div>
+                        </div>
+                        <div class="text-purple-primary text-xl">
+                            →
+                        </div>
+                    </div>
+                    
+                    <!-- Telegram Option -->
+                    <div class="social-option" data-platform="telegram" data-number="+2348141560632">
+                        <div class="social-icon telegram-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.197c-.174-.413-.494-.767-.862-.944-2.357-1.057-9.82-4.2-10.27-4.356-.31-.108-.65-.15-.948.042-.293.19-.461.519-.461.884v.215c.056 1.491.706 10.861.817 11.957.058.567.303 1.13.707 1.542.389.393.896.586 1.417.586.212 0 .426-.031.625-.092 1.848-.582 9.386-3.957 10.102-4.304.515-.255.727-.843.558-1.374l-2.156-6.577zM8.184 13.097l3.741 2.499c.218.146.486.22.75.22.286 0 .571-.085.817-.25l.116-.084 2.983-2.039c.025-.017.056-.013.078.008l1.39 1.214c.065.057.016.179-.075.168l-5.226-.639c-.031-.004-.058.018-.058.049l-.328 4.322c-.009.118-.166.146-.223.034l-1.923-3.378c-.009-.016-.004-.034.009-.047l1.301-1.544c.009-.011.004-.028-.011-.035l-3.168-1.325c-.113-.047-.094-.196.023-.224l4.286-.885c.032-.007.052-.036.044-.068l-.744-2.93c-.02-.08.097-.131.153-.062l4.32 5.013c.052.06.016.151-.065.151l-1.666.007c-.033 0-.062.022-.069.054l-.599 2.016c-.02.067-.111.095-.161.047l-2.076-1.999c-.013-.013-.033-.016-.049-.008l-4.429 2.681c-.083.05-.189-.025-.156-.114l1.641-4.435c.013-.035-.009-.072-.047-.072l-2.091.007c-.082 0-.123-.098-.058-.154z"/>
+                            </svg>
+                        </div>
+                        <div class="social-details flex-1 text-left">
+                            <h4 class="font-sora font-semibold text-gray-900 mb-1">Telegram</h4>
+                            <p class="text-sm text-gray-600 mb-2">Message us on Telegram to enroll</p>
+                            <div class="flex items-center gap-3">
+                                <span class="contact-number">+234 814 156 0632</span>
+                                <button class="copy-btn" data-number="+2348141560632">Copy</button>
+                            </div>
+                        </div>
+                        <div class="text-purple-primary text-xl">
+                            →
+                        </div>
+                    </div>
+                </div>
+                
+                <p class="text-gray-500 text-sm">
+                    Click on your preferred option to contact us about course enrollment
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Service Details Modal -->
+    <div id="serviceDetailsModal" class="modal-overlay">
+        <div class="modal-content">
+            <button id="closeServiceModal" class="close-modal-btn">
+                &times;
+            </button>
+            <div class="text-center">
+                <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-purple-primary to-purple-400 flex items-center justify-center text-white text-3xl floating-icon" id="serviceModalIcon">
+                    ⚡
+                </div>
+                <h3 class="font-sora text-2xl font-bold text-gray-900 mb-2" id="serviceModalTitle">Service Details</h3>
+                <p class="text-gray-600 mb-6" id="serviceModalDescription">
+                    Detailed information about our service
+                </p>
+                
+                <!-- Service Details Content -->
+                <div class="text-left" id="serviceModalContent">
+                    <!-- Content will be loaded dynamically -->
+                </div>
+                
+                <!-- Contact CTA -->
+                <div class="mt-8 pt-6 border-t border-gray-200">
+                    <p class="text-gray-600 mb-4">Interested in this service?</p>
+                    <button id="contactForServiceBtn" class="w-full py-3 px-6 bg-gradient-to-r from-purple-primary to-purple-600 text-white font-medium rounded-xl cursor-pointer transition-all duration-300 hover:shadow-lg hover:shadow-purple-primary/25 hover:-translate-y-0.5">
+                        Contact Us for More Info
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Legal Modal -->
+    <div id="legalModal" class="modal-overlay">
+        <div class="modal-content">
+            <button id="closeLegalModal" class="close-modal-btn">
+                &times;
+            </button>
+            <div class="text-center">
+                <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-purple-primary to-purple-400 flex items-center justify-center text-white text-3xl floating-icon" id="legalModalIcon">
+                    🔒
+                </div>
+                <h3 class="font-sora text-2xl font-bold text-gray-900 mb-2" id="legalModalTitle">Legal Information</h3>
+                <p class="text-gray-600 mb-6" id="legalModalDescription">
+                    Detailed information about our legal policies
+                </p>
+                
+                <!-- Legal Content -->
+                <div class="text-left" id="legalModalContent">
+                    <!-- Content will be loaded dynamically -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed top-0 w-full px-[5%] py-5 flex justify-between items-center bg-white/98 border-b border-gray-100 z-[1000] transition-all duration-300">
+        <div class="font-sora text-xl font-semibold text-purple-primary flex-shrink-0 animate-scale-in">Codelara</div>
+        <div class="flex items-center gap-12 ml-auto">
+            <ul class="hidden md:flex gap-8 list-none">
+                <li>
+                    <a href="#home" class="text-gray-800 no-underline font-medium text-[0.95rem] hover:text-purple-primary transition-colors duration-300">Home</a>
+                </li>
+                <li>
+                    <a href="#about" class="text-gray-800 no-underline font-medium text-[0.95rem] hover:text-purple-primary transition-colors duration-300">About</a>
+                </li>
+                <li>
+                    <a href="#services" class="text-gray-800 no-underline font-medium text-[0.95rem] hover:text-purple-primary transition-colors duration-300">Services</a>
+                </li>
+                <li>
+                    <a href="#courses" class="text-gray-800 no-underline font-medium text-[0.95rem] hover:text-purple-primary transition-colors duration-300">Courses</a>
+                </li>
+            </ul>
+            <button id="getStartedBtn" class="bg-purple-primary text-white py-3 px-7 rounded-lg font-medium text-sm border-none cursor-pointer transition-all duration-300 flex-shrink-0 hover:bg-purple-dark hover:-translate-y-px animate-fade-in">
+                Get Started
+            </button>
+        </div>
+    </nav>
+
+    <!-- Enhanced Hero Section -->
+    <section id="home" class="min-h-[85vh] flex flex-col justify-center items-center text-center px-[5%] pt-32 pb-0 relative hero-container bg-gradient-to-b from-[#fdfcfe] to-[#faf8ff]">
+        <!-- Animated Background Elements -->
+        <div class="particles-container" id="particles"></div>
+        
+        <!-- Floating Shapes -->
+        <div class="floating-shape shape-1"></div>
+        <div class="floating-shape shape-2"></div>
+        <div class="floating-shape shape-3"></div>
+        
+        <!-- Code Lines -->
+        <div class="code-line line-1">&lt;div class="ai-website"&gt;</div>
+        <div class="code-line line-2">function createBusiness() {</div>
+        <div class="code-line line-3">const growth = new Revenue();</div>
+        
+        <!-- AI Pulse Effects -->
+        <div class="ai-pulse pulse-1"></div>
+        <div class="ai-pulse pulse-2"></div>
+
+        <!-- Main Content -->
+        <div id="defaultView" class="max-w-4xl relative z-10 transition-opacity duration-500 opacity-100">
+            <!-- Animated Badge -->
+            <div class="mb-8 animate-slide-up">
+                <span class="hero-badge inline-block bg-purple-50 text-purple-primary py-3 px-6 rounded-full text-sm font-medium mb-6 border border-purple-200 animate-pulse-glow">
+                    <span class="flex items-center gap-2">
+                        <span class="text-lg">✨</span>
+                        <span>Web Solutions</span>
+                        <span class="text-lg animate-bounce-subtle">🚀</span>
+                    </span>
+                </span>
+            </div>
+
+            <!-- Animated Main Title -->
+            <h1 class="font-sora text-5xl md:text-7xl font-bold leading-tight mb-6 text-gray-900 tracking-tight hero-title animate-slide-up" style="animation-delay: 0.2s">
+                We Build 
+                <span class="typewriter-container">
+                    <span class="gradient-text typewriter-text">Smart Websites</span>
+                </span>
+                <br class="hidden md:block">
+                That Grow <span class="gradient-text">Your Business</span>
+            </h1>
+
+            <!-- Animated Description -->
+            <p class="text-xl leading-relaxed text-gray-600 mb-10 max-w-2xl mx-auto hero-description animate-slide-up" style="animation-delay: 0.4s">
+                Transform your digital presence with our
+                <span class="font-semibold text-purple-primary">Team</span> 
+                we automate operations, drive revenue, and scale with your growth.
+            </p>
+
+            <!-- Animated Buttons -->
+            <div class="flex gap-4 justify-center flex-wrap hero-buttons animate-slide-up" style="animation-delay: 0.6s">
+                <button id="hireTeamBtn" class="hero-cta py-4 px-8 text-base font-medium border-none rounded-xl cursor-pointer transition-all duration-300 bg-purple-primary text-white hover:bg-purple-dark hover:-translate-y-0.5 hover:shadow-2xl hover:shadow-purple-primary/30 flex items-center gap-2">
+                    Hire Our Team 
+                    <span class="animated-arrow">→</span>
+                </button>
+                <button id="useAiBtn" class="py-4 px-8 text-base font-medium rounded-xl cursor-pointer transition-all duration-300 bg-white text-purple-primary border-2 border-purple-200 hover:bg-purple-50 hover:border-purple-primary hover:-translate-y-0.5 hover:shadow-xl hover:shadow-purple-primary/20 flex items-center gap-2">
+                    <span class="text-xl animate-float">🤖</span>
+                    Explore AI Features
+                </button>
+            </div>
+
+            <!-- Stats Section -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto mt-12">
+                <div class="text-center p-4 bg-white/50 backdrop-blur-sm rounded-xl border border-purple-100 counter-item">
+                    <div class="font-sora text-2xl md:text-3xl font-bold text-purple-primary mb-1 count-number" data-target="500">0+</div>
+                    <div class="text-gray-600 text-xs md:text-sm">Projects Delivered</div>
+                </div>
+                <div class="text-center p-4 bg-white/50 backdrop-blur-sm rounded-xl border border-purple-100 counter-item">
+                    <div class="font-sora text-2xl md:text-3xl font-bold text-purple-primary mb-1 count-number" data-target="99">0%</div>
+                    <div class="text-gray-600 text-xs md:text-sm">Client Satisfaction</div>
+                </div>
+                <div class="text-center p-4 bg-white/50 backdrop-blur-sm rounded-xl border border-purple-100 counter-item">
+                    <div class="font-sora text-2xl md:text-3xl font-bold text-purple-primary mb-1 count-number" data-target="200">0+</div>
+                    <div class="text-gray-600 text-xs md:text-sm">Happy Clients</div>
+                </div>
+                <div class="text-center p-4 bg-white/50 backdrop-blur-sm rounded-xl border border-purple-100 counter-item">
+                    <div class="font-sora text-2xl md:text-3xl font-bold text-purple-primary mb-1">24/7</div>
+                    <div class="text-gray-600 text-xs md:text-sm">Support</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <div class="mouse"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="pt-24 pb-24 px-[5%] bg-white">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+            <div>
+                <h2 class="font-sora text-4xl font-bold text-gray-900 mb-6">About Codelara</h2>
+                <p class="text-gray-600 leading-loose mb-6 text-lg">
+                    We're a team of passionate designers, developers, and AI enthusiasts dedicated to making web development
+                    accessible to everyone. Founded in 2024, we've helped hundreds of businesses transform their digital
+                    presence.
+                </p>
+                <p class="text-gray-600 leading-loose mb-6 text-lg">
+                    Our mission is simple: empower businesses with cutting-edge technology while maintaining the human touch
+                    that makes great design truly exceptional. Whether you're a startup or an established company, we're here
+                    to help you succeed online.
+                </p>
+                <div class="grid md:grid-cols-2 gap-8 mt-10">
+                    <div class="text-center p-6 bg-gray-50 rounded-xl">
+                        <div class="font-sora text-4xl font-bold text-purple-primary mb-2">500+</div>
+                        <div class="text-gray-600 text-sm">Projects Completed</div>
+                    </div>
+                    <div class="text-center p-6 bg-gray-50 rounded-xl">
+                        <div class="font-sora text-4xl font-bold text-purple-primary mb-2">200+</div>
+                        <div class="text-gray-600 text-sm">Happy Clients</div>
+                    </div>
+                    <div class="text-center p-6 bg-gray-50 rounded-xl">
+                        <div class="font-sora text-4xl font-bold text-purple-primary mb-2">50+</div>
+                        <div class="text-gray-600 text-sm">Team Members</div>
+                    </div>
+                    <div class="text-center p-6 bg-gray-50 rounded-xl">
+                        <div class="font-sora text-4xl font-bold text-purple-primary mb-2">99%</div>
+                        <div class="text-gray-600 text-sm">Satisfaction Rate</div>
+                    </div>
+                </div>
+            </div>
+            <div class="rounded-3xl overflow-hidden h-96 md:h-[500px] shadow-xl shadow-gray-200/50">
+                <img 
+                    src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" 
+                    alt="Modern web development team collaborating"
+                    class="w-full h-full object-cover"
+                />
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 px-[5%] bg-white">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <h2 class="font-sora text-4xl font-bold text-gray-900 mb-4">Our Services</h2>
+            <p class="text-lg text-gray-600 leading-relaxed">
+                We offer comprehensive web solutions tailored to your business needs. From AI-powered automation to custom
+                design, we've got you covered.
+            </p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <div class="bg-gray-50 rounded-2xl p-10 transition-all duration-300 border border-transparent hover:bg-white hover:border-purple-200 hover:-translate-y-1 hover:shadow-xl hover:shadow-gray-200/50">
+                <div class="font-sora text-sm text-purple-primary font-semibold mb-4">01</div>
+                <h3 class="font-sora text-xl font-semibold mb-4 text-gray-900">AI Website Generator</h3>
+                <p class="text-gray-600 leading-relaxed mb-6">Create stunning websites in minutes using our advanced AI technology. No coding skills required.</p>
+                <a href="#" class="learn-more-btn text-purple-primary font-medium inline-flex items-center gap-2 transition-all duration-300 hover:gap-3" data-service="ai-website">
+                    Learn more →
+                </a>
+            </div>
+            <div class="bg-gray-50 rounded-2xl p-10 transition-all duration-300 border border-transparent hover:bg-white hover:border-purple-200 hover:-translate-y-1 hover:shadow-xl hover:shadow-gray-200/50">
+                <div class="font-sora text-sm text-purple-primary font-semibold mb-4">02</div>
+                <h3 class="font-sora text-xl font-semibold mb-4 text-gray-900">Custom Web Design</h3>
+                <p class="text-gray-600 leading-relaxed mb-6">Work with our expert designers to craft a unique website that perfectly represents your brand.</p>
+                <a href="#" class="learn-more-btn text-purple-primary font-medium inline-flex items-center gap-2 transition-all duration-300 hover:gap-3" data-service="custom-design">
+                    Learn more →
+                </a>
+            </div>
+            <div class="bg-gray-50 rounded-2xl p-10 transition-all duration-300 border border-transparent hover:bg-white hover:border-purple-200 hover:-translate-y-1 hover:shadow-xl hover:shadow-gray-200/50">
+                <div class="font-sora text-sm text-purple-primary font-semibold mb-4">03</div>
+                <h3 class="font-sora text-xl font-semibold mb-4 text-gray-900">Web Development</h3>
+                <p class="text-gray-600 leading-relaxed mb-6">Full-stack development services to bring your ideas to life with clean, efficient code.</p>
+                <a href="#" class="learn-more-btn text-purple-primary font-medium inline-flex items-center gap-2 transition-all duration-300 hover:gap-3" data-service="web-development">
+                    Learn more →
+                </a>
+            </div>
+            <div class="bg-gray-50 rounded-2xl p-10 transition-all duration-300 border border-transparent hover:bg-white hover:border-purple-200 hover:-translate-y-1 hover:shadow-xl hover:shadow-gray-200/50">
+                <div class="font-sora text-sm text-purple-primary font-semibold mb-4">04</div>
+                <h3 class="font-sora text-xl font-semibold mb-4 text-gray-900">E-commerce Solutions</h3>
+                <p class="text-gray-600 leading-relaxed mb-6">Launch your online store with powerful features and seamless payment integration.</p>
+                <a href="#" class="learn-more-btn text-purple-primary font-medium inline-flex items-center gap-2 transition-all duration-300 hover:gap-3" data-service="ecommerce">
+                    Learn more →
+                </a>
+            </div>
+            <div class="bg-gray-50 rounded-2xl p-10 transition-all duration-300 border border-transparent hover:bg-white hover:border-purple-200 hover:-translate-y-1 hover:shadow-xl hover:shadow-gray-200/50">
+                <div class="font-sora text-sm text-purple-primary font-semibold mb-4">05</div>
+                <h3 class="font-sora text-xl font-semibold mb-4 text-gray-900">SEO Optimization</h3>
+                <p class="text-gray-600 leading-relaxed mb-6">Boost your online visibility with our proven SEO strategies and techniques.</p>
+                <a href="#" class="learn-more-btn text-purple-primary font-medium inline-flex items-center gap-2 transition-all duration-300 hover:gap-3" data-service="seo">
+                    Learn more →
+                </a>
+            </div>
+            <div class="bg-gray-50 rounded-2xl p-10 transition-all duration-300 border border-transparent hover:bg-white hover:border-purple-200 hover:-translate-y-1 hover:shadow-xl hover:shadow-gray-200/50">
+                <div class="font-sora text-sm text-purple-primary font-semibold mb-4">06</div>
+                <h3 class="font-sora text-xl font-semibold mb-4 text-gray-900">Maintenance & Support</h3>
+                <p class="text-gray-600 leading-relaxed mb-6">Keep your website running smoothly with our ongoing maintenance and support services.</p>
+                <a href="#" class="learn-more-btn text-purple-primary font-medium inline-flex items-center gap-2 transition-all duration-300 hover:gap-3" data-service="maintenance">
+                    Learn more →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses" class="py-24 px-[5%] bg-gradient-to-b from-[#fdfcfe] to-[#faf8ff]">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <h2 class="font-sora text-4xl font-bold text-gray-900 mb-4">Our Courses</h2>
+            <p class="text-lg text-gray-600 leading-relaxed">
+                Learn from industry experts and master the skills you need to build amazing websites and leverage AI tools.
+            </p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <!-- AI Development Course -->
+            <div class="bg-white rounded-2xl overflow-hidden border border-gray-100 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-gray-200/50 hover:border-purple-200">
+                <div class="h-52 course-image" style="background-image: url('https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');">
+                    <!-- Fallback emoji if image doesn't load -->
+                    
+                </div>
+                <div class="p-8">
+                    <div class="flex gap-4 mb-4">
+                        <span class="bg-purple-50 text-purple-primary py-1 px-3 rounded-full text-xs font-medium">Advanced</span>
+                        <span class="bg-purple-50 text-purple-primary py-1 px-3 rounded-full text-xs font-medium">6 Months</span>
+                    </div>
+                    <h3 class="font-sora text-xl font-semibold mb-4 text-gray-900">AI Development Mastery</h3>
+                    <p class="text-gray-600 leading-relaxed mb-6">Master artificial intelligence, machine learning, and deep learning. Build AI-powered applications and solutions.</p>
+                    <div class="flex justify-between items-center pt-4 border-t border-gray-100">
+                        <div class="font-sora text-2xl font-bold text-purple-primary course-price">2,000,000</div>
+                        <button class="enrollBtn bg-transparent text-purple-primary border-2 border-purple-primary py-2 px-6 rounded-lg font-medium cursor-pointer transition-all duration-300 hover:bg-purple-primary hover:text-white" data-course="ai-development" data-price="2000000">
+                            Enroll Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Programming Course -->
+            <div class="bg-white rounded-2xl overflow-hidden border border-gray-100 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-gray-200/50 hover:border-purple-200">
+                <div class="h-52 course-image" style="background-image: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');">
+                    <!-- Fallback emoji if image doesn't load -->
+                   
+                </div>
+                <div class="p-8">
+                    <div class="flex gap-4 mb-4">
+                        <span class="bg-purple-50 text-purple-primary py-1 px-3 rounded-full text-xs font-medium">Expert</span>
+                        <span class="bg-purple-50 text-purple-primary py-1 px-3 rounded-full text-xs font-medium">1 Year</span>
+                    </div>
+                    <h3 class="font-sora text-xl font-semibold mb-4 text-gray-900">Professional Programming</h3>
+                    <p class="text-gray-600 leading-relaxed mb-6">Comprehensive programming course covering full-stack development, algorithms, data structures, and system design.</p>
+                    <div class="flex justify-between items-center pt-4 border-t border-gray-100">
+                        <div class="font-sora text-2xl font-bold text-purple-primary course-price">10,000,000</div>
+                        <button class="enrollBtn bg-transparent text-purple-primary border-2 border-purple-primary py-2 px-6 rounded-lg font-medium cursor-pointer transition-all duration-300 hover:bg-purple-primary hover:text-white" data-course="programming" data-price="10000000">
+                            Enroll Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Marketing Course -->
+            <div class="bg-white rounded-2xl overflow-hidden border border-gray-100 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-gray-200/50 hover:border-purple-200">
+                <div class="h-52 course-image" style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');">
+                    <!-- Fallback emoji if image doesn't load -->
+                    
+                </div>
+                <div class="p-8">
+                    <div class="flex gap-4 mb-4">
+                        <span class="bg-purple-50 text-purple-primary py-1 px-3 rounded-full text-xs font-medium">Beginner</span>
+                        <span class="bg-purple-50 text-purple-primary py-1 px-3 rounded-full text-xs font-medium">3 Months</span>
+                    </div>
+                    <h3 class="font-sora text-xl font-semibold mb-4 text-gray-900">Digital Marketing</h3>
+                    <p class="text-gray-600 leading-relaxed mb-6">Learn SEO, social media marketing, content strategy, and analytics to grow businesses online effectively.</p>
+                    <div class="flex justify-between items-center pt-4 border-t border-gray-100">
+                        <div class="font-sora text-2xl font-bold text-purple-primary course-price">500,000</div>
+                        <button class="enrollBtn bg-transparent text-purple-primary border-2 border-purple-primary py-2 px-6 rounded-lg font-medium cursor-pointer transition-all duration-300 hover:bg-purple-primary hover:text-white" data-course="marketing" data-price="500000">
+                            Enroll Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-24 px-[5%] bg-white">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <h2 class="font-sora text-4xl font-bold text-gray-900 mb-4">Choose Your System</h2>
+            <p class="text-lg text-gray-600 leading-relaxed">
+                We don't just build websites - we build business systems that solve problems, automate operations, and drive revenue growth.
+            </p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <!-- STARTER SYSTEM -->
+            <div class="bg-white border-2 border-gray-100 rounded-3xl p-10 transition-all duration-300 text-center hover:-translate-y-2 hover:border-purple-primary hover:shadow-2xl hover:shadow-purple-primary/15">
+                <div class="font-sora text-xl font-semibold mb-2">Starter System</div>
+                <div class="bg-purple-50 text-purple-primary py-1 px-4 rounded-full text-sm font-medium mb-4 inline-block">
+                    ₦500,000
+                </div>
+                <p class="text-sm mb-8 opacity-80 font-medium">Perfect for small businesses starting their online journey</p>
+                
+                <div class="text-left mb-8">
+                    <h4 class="font-sora text-sm font-semibold text-gray-700 mb-3">Solves these problems:</h4>
+                    <ul class="list-none space-y-2 mb-6">
+                        <li class="text-sm text-gray-600 flex items-start gap-2">
+                            <span class="text-red-500 mt-1">❌</span>
+                            <span>"I don't look professional online"</span>
+                        </li>
+                        <li class="text-sm text-gray-600 flex items-start gap-2">
+                            <span class="text-red-500 mt-1">❌</span>
+                            <span>"Customers don't trust my business"</span>
+                        </li>
+                        <li class="text-sm text-gray-600 flex items-start gap-2">
+                            <span class="text-red-500 mt-1">❌</span>
+                            <span>"People can't easily contact me"</span>
+                        </li>
+                    </ul>
+                    
+                    <h4 class="font-sora text-sm font-semibold text-gray-700 mb-3">What you get:</h4>
+                    <ul class="list-none space-y-2 text-sm text-gray-600">
+                        <li class="flex items-start gap-2">
+                            <span class="text-purple-primary mt-1">✓</span>
+                            <span>Conversion-focused website (1-5 pages)</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-purple-primary mt-1">✓</span>
+                            <span>Custom UI/UX for trust & clarity</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-purple-primary mt-1">✓</span>
+                            <span>Mobile-first responsive design</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-purple-primary mt-1">✓</span>
+                            <span>WhatsApp & contact automation</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-purple-primary mt-1">✓</span>
+                            <span>Basic SEO setup</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-purple-primary mt-1">✓</span>
+                            <span>Secure hosting & SSL</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-purple-primary mt-1">✓</span>
+                            <span>2 revision cycles</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="mb-6">
+                    <h5 class="font-sora text-sm font-semibold text-gray-700 mb-2">Outcome:</h5>
+                    <p class="text-sm text-gray-600">✅ Professional online presence that attracts customers</p>
+                    <p class="text-xs text-gray-500 mt-2">Delivery: 7-10 days</p>
+                </div>
+                
+                <button class="pricingBtn w-full py-4 px-8 bg-purple-primary text-white border-none rounded-xl font-semibold cursor-pointer transition-all duration-300 hover:bg-purple-dark hover:-translate-y-0.5" data-plan="starter">
+                    Get Started
+                </button>
+            </div>
+            
+            <!-- GROWTH SYSTEM -->
+            <div class="bg-gradient-to-br from-purple-primary to-purple-400 text-white rounded-3xl p-10 transition-all duration-300 text-center scale-105 hover:-translate-y-2 hover:scale-110 hover:shadow-2xl hover:shadow-purple-primary/30">
+                <div class="font-sora text-xl font-semibold mb-2">Growth System</div>
+                <div class="bg-white/20 text-white py-1 px-4 rounded-full text-sm font-medium mb-4 inline-block">
+                    ₦2,000,000 - ₦3,000,000
+                </div>
+                <p class="text-sm mb-8 opacity-80 font-medium">For growing businesses ready to automate and scale</p>
+                
+                <div class="text-left mb-8">
+                    <h4 class="font-sora text-sm font-semibold mb-3">Solves these problems:</h4>
+                    <ul class="list-none space-y-2 mb-6">
+                        <li class="text-sm opacity-90 flex items-start gap-2">
+                            <span class="text-white/90 mt-1">❌</span>
+                            <span>Manual operations wasting time</span>
+                        </li>
+                        <li class="text-sm opacity-90 flex items-start gap-2">
+                            <span class="text-white/90 mt-1">❌</span>
+                            <span>No system to manage customers/payments</span>
+                        </li>
+                        <li class="text-sm opacity-90 flex items-start gap-2">
+                            <span class="text-white/90 mt-1">❌</span>
+                            <span>Losing leads due to poor UX</span>
+                        </li>
+                    </ul>
+                    
+                    <h4 class="font-sora text-sm font-semibold mb-3">What you get:</h4>
+                    <ul class="list-none space-y-2 text-sm opacity-90">
+                        <li class="flex items-start gap-2">
+                            <span class="text-white mt-1">✓</span>
+                            <span>Custom business platform (6-15 pages)</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-white mt-1">✓</span>
+                            <span>Strategic UI/UX for conversions</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-white mt-1">✓</span>
+                            <span>Admin dashboard for management</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-white mt-1">✓</span>
+                            <span>Payment integration (Paystack/Flutterwave)</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-white mt-1">✓</span>
+                            <span>User login & authentication</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-white mt-1">✓</span>
+                            <span>Performance optimization</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-white mt-1">✓</span>
+                            <span>Advanced SEO & analytics</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-white mt-1">✓</span>
+                            <span>5 revision milestones</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-white mt-1">✓</span>
+                            <span>1-3 months post-launch support</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="mb-6">
+                    <h5 class="font-sora text-sm font-semibold mb-2">Outcome:</h5>
+                    <p class="text-sm opacity-90">✅ Automated workflows & better customer experience</p>
+                    <p class="text-xs opacity-70 mt-2">Delivery: 3-5 weeks • 40% upfront / 40% mid / 20% on delivery</p>
+                </div>
+                
+                <button class="pricingBtn w-full py-4 px-8 bg-white text-purple-primary border-none rounded-xl font-semibold cursor-pointer transition-all duration-300 hover:bg-gray-50 hover:-translate-y-0.5" data-plan="growth">
+                    Get Started
+                </button>
+            </div>
+            
+            <!-- ENTERPRISE SYSTEM -->
+            <div class="bg-white border-2 border-gray-100 rounded-3xl p-10 transition-all duration-300 text-center hover:-translate-y-2 hover:border-purple-primary hover:shadow-2xl hover:shadow-purple-primary/15">
+                <div class="font-sora text-xl font-semibold mb-2">Enterprise System</div>
+                <div class="bg-purple-50 text-purple-primary py-1 px-4 rounded-full text-sm font-medium mb-4 inline-block">
+                    ₦10,000,000
+                </div>
+                <p class="text-sm mb-8 opacity-80 font-medium">For corporations, fintechs & large-scale platforms</p>
+                
+                <div class="text-left mb-8">
+                    <h4 class="font-sora text-sm font-semibold text-gray-700 mb-3">Solves these problems:</h4>
+                    <ul class="list-none space-y-2 mb-6">
+                        <li class="text-sm text-gray-600 flex items-start gap-2">
+                            <span class="text-red-500 mt-1">❌</span>
+                            <span>Disconnected tools & inefficiencies</span>
+                        </li>
+                        <li class="text-sm text-gray-600 flex items-start gap-2">
+                            <span class="text-red-500 mt-1">❌</span>
+                            <span>Security, scalability & performance issues</span>
+                        </li>
+                        <li class="text-sm text-gray-600 flex items-start gap-2">
+                            <span class="text-red-500 mt-1">❌</span>
+                            <span>Platform can't handle growth</span>
+                        </li>
+                    </ul>
+                    
+                    <h4 class="font-sora text-sm font-semibold text-gray-700 mb-3">What you get:</h4>
+                    <ul class="list-none space-y-2 text-sm text-gray-600">
+                        <li class="flex items-start gap-2">
+                            <span class="text-purple-primary mt-1">✓</span>
+                            <span>Custom enterprise web platform or SaaS</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-purple-primary mt-1">✓</span>
+                            <span>Research-driven UI/UX</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-purple-primary mt-1">✓</span>
+                            <span>Scalable backend architecture</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-purple-primary mt-1">✓</span>
+                            <span>Role-based dashboards</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-purple-primary mt-1">✓</span>
+                            <span>Advanced security & data protection</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-purple-primary mt-1">✓</span>
+                            <span>Multiple payment & API integrations</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-purple-primary mt-1">✓</span>
+                            <span>AI features (optional)</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-purple-primary mt-1">✓</span>
+                            <span>Load & stress optimization</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-purple-primary mt-1">✓</span>
+                            <span>Full testing & documentation</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-purple-primary mt-1">✓</span>
+                            <span>Dedicated project manager</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-purple-primary mt-1">✓</span>
+                            <span>Unlimited revisions during development</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="mb-6">
+                    <h5 class="font-sora text-sm font-semibold text-gray-700 mb-2">Outcome:</h5>
+                    <p class="text-sm text-gray-600">✅ Scalable digital asset with competitive advantage</p>
+                    <p class="text-xs text-gray-500 mt-2">Delivery: 2-4 months • 40% upfront / 40% milestone / 20% final</p>
+                </div>
+                
+                <button class="pricingEnterpriseBtn w-full py-4 px-8 bg-purple-primary text-white border-none rounded-xl font-semibold cursor-pointer transition-all duration-300 hover:bg-purple-dark hover:-translate-y-0.5" data-plan="enterprise">
+                    Contact Sales
+                </button>
+            </div>
+        </div>
+        
+        <!-- Trust & Guarantee Section -->
+        <div class="max-w-4xl mx-auto mt-20 pt-12 border-t border-gray-100">
+            <div class="bg-gradient-to-r from-purple-50 to-white rounded-2xl p-8 border border-purple-100">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-12 h-12 rounded-full bg-gradient-to-br from-purple-primary to-purple-400 flex items-center justify-center text-white text-2xl">
+                        🛡️
+                    </div>
+                    <h3 class="font-sora text-2xl font-bold text-gray-900">Trust & Guarantee</h3>
+                </div>
+                <p class="text-gray-700 text-lg mb-6 font-medium">
+                    We don't just build — we partner with you for success.
+                </p>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="flex items-start gap-3">
+                        <div class="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center text-purple-primary flex-shrink-0">
+                            ✓
+                        </div>
+                        <div>
+                            <h4 class="font-sora font-semibold text-gray-900 mb-1">Milestone-based Delivery</h4>
+                            <p class="text-sm text-gray-600">Clear progress tracking with milestone approvals</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center text-purple-primary flex-shrink-0">
+                            ✓
+                        </div>
+                        <div>
+                            <h4 class="font-sora font-semibold text-gray-900 mb-1">Refund Guarantee</h4>
+                            <p class="text-sm text-gray-600">Refund or revision if milestones aren't met</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center text-purple-primary flex-shrink-0">
+                            ✓
+                        </div>
+                        <div>
+                            <h4 class="font-sora font-semibold text-gray-900 mb-1">Clear Communication</h4>
+                            <p class="text-sm text-gray-600">Regular updates and transparent communication</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center text-purple-primary flex-shrink-0">
+                            ✓
+                        </div>
+                        <div>
+                            <h4 class="font-sora font-semibold text-gray-900 mb-1">Post-launch Support</h4>
+                            <p class="text-sm text-gray-600">Included support to ensure your success</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-8 pt-6 border-t border-purple-100">
+                    <p class="text-gray-700 font-medium mb-2">💬 Quick Pitch:</p>
+                    <p class="text-gray-600 italic">
+                        "We don't sell websites. We build systems that solve business problems, automate operations, and help companies grow revenue. The price depends on how complex the system needs to be and the problem it's solving."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-24 px-[5%] bg-white">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <h2 class="font-sora text-4xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
+            <p class="text-lg text-gray-600 leading-relaxed">
+                Got questions? We've got answers. If you can't find what you're looking for, feel free to reach out.
+            </p>
+        </div>
+        <div class="max-w-3xl mx-auto">
+            <!-- Question 1 -->
+            <div class="border-b border-gray-100 py-6">
+                <div class="faq-question flex justify-between items-center cursor-pointer font-sora text-lg font-semibold text-gray-900 transition-colors duration-300 hover:text-purple-primary">
+                    <span>Why is your pricing higher than regular web designers?</span>
+                    <span class="faq-icon text-2xl text-purple-primary transition-transform duration-300">+</span>
+                </div>
+                <div class="faq-answer overflow-hidden transition-all duration-300 text-gray-600 leading-relaxed max-h-0">
+                    <div class="pt-4">
+                        We don't sell websites — we build business systems. Our platforms are designed to solve real business problems, automate operations, increase trust, and support growth. This approach delivers long-term value, not just visuals.
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Question 2 -->
+            <div class="border-b border-gray-100 py-6">
+                <div class="faq-question flex justify-between items-center cursor-pointer font-sora text-lg font-semibold text-gray-900 transition-colors duration-300 hover:text-purple-primary">
+                    <span>What determines the final cost of a project?</span>
+                    <span class="faq-icon text-2xl text-purple-primary transition-transform duration-300">+</span>
+                </div>
+                <div class="faq-answer overflow-hidden transition-all duration-300 text-gray-600 leading-relaxed max-h-0">
+                    <div class="pt-4">
+                        The cost depends on:
+                        <ul class="list-disc pl-5 mt-2 space-y-1">
+                            <li>The problem the platform is solving</li>
+                            <li>Number of features and integrations</li>
+                            <li>Level of automation required</li>
+                            <li>Security, performance, and scalability needs</li>
+                        </ul>
+                        After a brief consultation, we recommend the most suitable system, not the most expensive one.
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Question 3 -->
+            <div class="border-b border-gray-100 py-6">
+                <div class="faq-question flex justify-between items-center cursor-pointer font-sora text-lg font-semibold text-gray-900 transition-colors duration-300 hover:text-purple-primary">
+                    <span>Do you use templates?</span>
+                    <span class="faq-icon text-2xl text-purple-primary transition-transform duration-300">+</span>
+                </div>
+                <div class="faq-answer overflow-hidden transition-all duration-300 text-gray-600 leading-relaxed max-h-0">
+                    <div class="pt-4">
+                        No. Every project is custom-designed and built from scratch to match your brand, business goals, and users. This ensures better performance, uniqueness, and scalability.
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Question 4 -->
+            <div class="border-b border-gray-100 py-6">
+                <div class="faq-question flex justify-between items-center cursor-pointer font-sora text-lg font-semibold text-gray-900 transition-colors duration-300 hover:text-purple-primary">
+                    <span>How does payment work for large projects?</span>
+                    <span class="faq-icon text-2xl text-purple-primary transition-transform duration-300">+</span>
+                </div>
+                <div class="faq-answer overflow-hidden transition-all duration-300 text-gray-600 leading-relaxed max-h-0">
+                    <div class="pt-4">
+                        For mid-to-large projects, we use a milestone-based payment structure:
+                        <ul class="list-disc pl-5 mt-2 space-y-1">
+                            <li>40% upfront – project kickoff</li>
+                            <li>40% mid-development – after key milestones</li>
+                            <li>20% on delivery – after final approval</li>
+                        </ul>
+                        This protects both parties and ensures transparency.
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Question 5 -->
+            <div class="border-b border-gray-100 py-6">
+                <div class="faq-question flex justify-between items-center cursor-pointer font-sora text-lg font-semibold text-gray-900 transition-colors duration-300 hover:text-purple-primary">
+                    <span>What if I'm not satisfied with the work?</span>
+                    <span class="faq-icon text-2xl text-purple-primary transition-transform duration-300">+</span>
+                </div>
+                <div class="faq-answer overflow-hidden transition-all duration-300 text-gray-600 leading-relaxed max-h-0">
+                    <div class="pt-4">
+                        We offer a milestone guarantee. If a project milestone is not delivered as agreed, we revise it at no extra cost — or refund the affected portion. Your satisfaction and trust matter to us.
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Question 6 -->
+            <div class="border-b border-gray-100 py-6">
+                <div class="faq-question flex justify-between items-center cursor-pointer font-sora text-lg font-semibold text-gray-900 transition-colors duration-300 hover:text-purple-primary">
+                    <span>How long does it take to complete a project?</span>
+                    <span class="faq-icon text-2xl text-purple-primary transition-transform duration-300">+</span>
+                </div>
+                <div class="faq-answer overflow-hidden transition-all duration-300 text-gray-600 leading-relaxed max-h-0">
+                    <div class="pt-4">
+                        Delivery time depends on the project scope:
+                        <ul class="list-disc pl-5 mt-2 space-y-1">
+                            <li><strong>Starter System:</strong> 7–10 days</li>
+                            <li><strong>Growth System:</strong> 3–5 weeks</li>
+                            <li><strong>Enterprise System:</strong> 2–4 months</li>
+                        </ul>
+                        Clear timelines are provided before work begins.
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Question 7 -->
+            <div class="border-b border-gray-100 py-6">
+                <div class="faq-question flex justify-between items-center cursor-pointer font-sora text-lg font-semibold text-gray-900 transition-colors duration-300 hover:text-purple-primary">
+                    <span>Will my website work on mobile devices?</span>
+                    <span class="faq-icon text-2xl text-purple-primary transition-transform duration-300">+</span>
+                </div>
+                <div class="faq-answer overflow-hidden transition-all duration-300 text-gray-600 leading-relaxed max-h-0">
+                    <div class="pt-4">
+                        Yes. All our systems are mobile-first and fully responsive, ensuring smooth performance on phones, tablets, and desktops.
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Question 8 -->
+            <div class="border-b border-gray-100 py-6">
+                <div class="faq-question flex justify-between items-center cursor-pointer font-sora text-lg font-semibold text-gray-900 transition-colors duration-300 hover:text-purple-primary">
+                    <span>Do you provide support after launch?</span>
+                    <span class="faq-icon text-2xl text-purple-primary transition-transform duration-300">+</span>
+                </div>
+                <div class="faq-answer overflow-hidden transition-all duration-300 text-gray-600 leading-relaxed max-h-0">
+                    <div class="pt-4">
+                        Yes. Every plan includes post-launch support. Enterprise clients receive priority support and long-term maintenance options.
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Question 9 -->
+            <div class="border-b border-gray-100 py-6">
+                <div class="faq-question flex justify-between items-center cursor-pointer font-sora text-lg font-semibold text-gray-900 transition-colors duration-300 hover:text-purple-primary">
+                    <span>Can you integrate payments, APIs, or third-party tools?</span>
+                    <span class="faq-icon text-2xl text-purple-primary transition-transform duration-300">+</span>
+                </div>
+                <div class="faq-answer overflow-hidden transition-all duration-300 text-gray-600 leading-relaxed max-h-0">
+                    <div class="pt-4">
+                        Absolutely. We integrate:
+                        <ul class="list-disc pl-5 mt-2 space-y-1">
+                            <li>Paystack, Flutterwave & other gateways</li>
+                            <li>APIs and third-party services</li>
+                            <li>Automation tools and analytics</li>
+                        </ul>
+                        Enterprise systems can include custom or AI-powered integrations.
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Question 10 -->
+            <div class="border-b border-gray-100 py-6">
+                <div class="faq-question flex justify-between items-center cursor-pointer font-sora text-lg font-semibold text-gray-900 transition-colors duration-300 hover:text-purple-primary">
+                    <span>Is ₦10,000,000 really worth it?</span>
+                    <span class="faq-icon text-2xl text-purple-primary transition-transform duration-300">+</span>
+                </div>
+                <div class="faq-answer overflow-hidden transition-all duration-300 text-gray-600 leading-relaxed max-h-0">
+                    <div class="pt-4">
+                        For businesses that need scalability, security, automation, and performance, yes. You're not paying for a website — you're investing in a digital asset that supports revenue and growth.
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Question 11 -->
+            <div class="border-b border-gray-100 py-6">
+                <div class="faq-question flex justify-between items-center cursor-pointer font-sora text-lg font-semibold text-gray-900 transition-colors duration-300 hover:text-purple-primary">
+                    <span>Who are these services best for?</span>
+                    <span class="faq-icon text-2xl text-purple-primary transition-transform duration-300">+</span>
+                </div>
+                <div class="faq-answer overflow-hidden transition-all duration-300 text-gray-600 leading-relaxed max-h-0">
+                    <div class="pt-4">
+                        Our systems are ideal for:
+                        <ul class="list-disc pl-5 mt-2 space-y-1">
+                            <li>Startups & SMEs ready to scale</li>
+                            <li>Agencies & service companies</li>
+                            <li>Corporations & tech-driven businesses</li>
+                        </ul>
+                        If your business relies on customers, data, or automation, this is for you.
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Question 12 -->
+            <div class="border-b border-gray-100 py-6">
+                <div class="faq-question flex justify-between items-center cursor-pointer font-sora text-lg font-semibold text-gray-900 transition-colors duration-300 hover:text-purple-primary">
+                    <span>How do we get started?</span>
+                    <span class="faq-icon text-2xl text-purple-primary transition-transform duration-300">+</span>
+                </div>
+                <div class="faq-answer overflow-hidden transition-all duration-300 text-gray-600 leading-relaxed max-h-0">
+                    <div class="pt-4">
+                        Simple:
+                        <ol class="list-decimal pl-5 mt-2 space-y-1">
+                            <li>Book a consultation</li>
+                            <li>We identify the problem to solve</li>
+                            <li>We recommend the right system</li>
+                            <li>Project kickoff after payment</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Pro Tip CTA -->
+        <div class="max-w-3xl mx-auto mt-16">
+            <div class="bg-gradient-to-r from-purple-primary/10 to-purple-400/10 rounded-2xl p-8 border border-purple-200 text-center">
+                <div class="flex items-center justify-center gap-3 mb-4">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-purple-primary to-purple-400 flex items-center justify-center text-white text-xl">
+                        🔥
+                    </div>
+                    <h3 class="font-sora text-xl font-bold text-gray-900">Still not sure which system fits your business?</h3>
+                </div>
+                <p class="text-gray-600 mb-6">
+                    Book a free strategy call and we'll guide you through the best solution for your specific needs.
+                </p>
+                <button id="freeStrategyCallBtn" class="py-3 px-8 bg-gradient-to-r from-purple-primary to-purple-600 text-white font-medium rounded-xl cursor-pointer transition-all duration-300 hover:shadow-lg hover:shadow-purple-primary/25 hover:-translate-y-0.5">
+                    Book Free Strategy Call →
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16 px-[5%]">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-4 gap-12 pb-12 border-b border-white/10">
+            <div class="md:col-span-2 max-w-xs">
+                <div class="font-sora text-2xl font-bold text-purple-primary mb-4">Codelara</div>
+                <p class="text-gray-400 leading-relaxed mb-6">
+                    Empowering businesses with cutting-edge web solutions and AI-powered tools. Transform your digital
+                    presence today.
+                </p>
+                <div class="flex gap-4">
+                    <a href="#" class="w-10 h-10 rounded-full bg-purple-primary/10 flex items-center justify-center text-purple-primary text-xl transition-all duration-300 hover:bg-purple-primary hover:text-white hover:-translate-y-1">𝕏</a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-purple-primary/10 flex items-center justify-center text-purple-primary text-xl transition-all duration-300 hover:bg-purple-primary hover:text-white hover:-translate-y-1">in</a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-purple-primary/10 flex items-center justify-center text-purple-primary text-xl transition-all duration-300 hover:bg-purple-primary hover:text-white hover:-translate-y-1">f</a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-purple-primary/10 flex items-center justify-center text-purple-primary text-xl transition-all duration-300 hover:bg-purple-primary hover:text-white hover:-translate-y-1">📷</a>
+                </div>
+            </div>
+            <div>
+                <h4 class="font-sora text-lg mb-6">Legal</h4>
+                <ul class="list-none" id="legalLinks">
+                    <li class="mb-3">
+                        <a href="#" class="legal-link text-gray-400 text-sm transition-colors duration-300 hover:text-purple-primary" data-legal="privacy">
+                            Privacy Policy
+                        </a>
+                    </li>
+                    <li class="mb-3">
+                        <a href="#" class="legal-link text-gray-400 text-sm transition-colors duration-300 hover:text-purple-primary" data-legal="terms">
+                            Terms of Service
+                        </a>
+                    </li>
+                    <li class="mb-3">
+                        <a href="#" class="legal-link text-gray-400 text-sm transition-colors duration-300 hover:text-purple-primary" data-legal="cookie">
+                            Cookie Policy
+                        </a>
+                    </li>
+                    <li class="mb-3">
+                        <a href="#" class="legal-link text-gray-400 text-sm transition-colors duration-300 hover:text-purple-primary" data-legal="gdpr">
+                            GDPR
+                        </a>
+                    </li>
+                    <li class="mb-3">
+                        <a href="#" class="legal-link text-gray-400 text-sm transition-colors duration-300 hover:text-purple-primary" data-legal="licenses">
+                            Licenses
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-6xl mx-auto pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-gray-500 text-sm">
+            <p>© 2024 Codelara. All rights reserved.</p>
+            <div class="flex gap-8">
+                <a href="#" class="transition-colors duration-300 hover:text-purple-primary">Sitemap</a>
+                <a href="#" class="transition-colors duration-300 hover:text-purple-primary">Accessibility</a>
+                <a href="#" class="transition-colors duration-300 hover:text-purple-primary">Status</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Particle System
+        function createParticles() {
+            const container = document.getElementById('particles');
+            const particleCount = 20;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random size
+                const size = Math.random() * 20 + 5;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Random position
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                
+                // Random animation
+                const duration = Math.random() * 20 + 10;
+                const delay = Math.random() * 5;
+                particle.style.animation = `float ${duration}s ease-in-out ${delay}s infinite`;
+                
+                container.appendChild(particle);
+            }
+        }
+        
+        // Animate number counting
+        function animateCounters() {
+            const counters = document.querySelectorAll('.count-number');
+            
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const increment = target / 50;
+                let current = 0;
+                
+                const updateCounter = () => {
+                    if (current < target) {
+                        current += increment;
+                        const displayValue = counter.textContent.includes('%') 
+                            ? Math.ceil(current) + '%'
+                            : Math.ceil(current) + '+';
+                        counter.textContent = displayValue;
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.textContent = target + (counter.textContent.includes('%') ? '%' : '+');
+                    }
+                };
+                
+                // Start animation when element is in viewport
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            setTimeout(updateCounter, 300);
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.5 });
+                
+                observer.observe(counter);
+            });
+        }
+        
+        // Smooth scroll for mouse click
+        document.querySelector('.scroll-indicator').addEventListener('click', () => {
+            document.querySelector('#about').scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
+        });
+        
+        // State variables
+        let showAiView = false;
+        let isRecording = false;
+        let designInput = '';
+        let activeFaq = null;
+        let navbarShadow = false;
+        let touchStartY = 0;
+        let touchEndY = 0;
+        let resizeTimeout;
+        
+        // DOM Elements
+        const navbar = document.getElementById('navbar');
+        const defaultView = document.getElementById('defaultView');
+        const useAiBtn = document.getElementById('useAiBtn');
+        const hireTeamBtn = document.getElementById('hireTeamBtn');
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        const faqAnswers = document.querySelectorAll('.faq-answer');
+        const faqIcons = document.querySelectorAll('.faq-icon');
+        const getStartedBtn = document.getElementById('getStartedBtn');
+        const enrollBtns = document.querySelectorAll('.enrollBtn');
+        const pricingBtns = document.querySelectorAll('.pricingBtn');
+        const pricingEnterpriseBtn = document.querySelector('.pricingEnterpriseBtn');
+        const learnMoreBtns = document.querySelectorAll('.learn-more-btn');
+        const freeStrategyCallBtn = document.getElementById('freeStrategyCallBtn');
+        const legalLinks = document.querySelectorAll('.legal-link');
+        
+        // Modal Elements
+        const aiFeaturesModal = document.getElementById('aiFeaturesModal');
+        const closeAiModal = document.getElementById('closeAiModal');
+        const comingSoonModal = document.getElementById('comingSoonModal');
+        const closeModal = document.getElementById('closeModal');
+        const confirmCloseModal = document.getElementById('confirmCloseModal');
+        const notifyMeBtn = document.querySelector('.modal-content button');
+        const emailInput = document.querySelector('.modal-content input[type="email"]');
+        
+        // New Modals
+        const socialMediaModal = document.getElementById('socialMediaModal');
+        const closeSocialModal = document.getElementById('closeSocialModal');
+        const socialModalTitle = document.getElementById('socialModalTitle');
+        const socialModalDescription = document.getElementById('socialModalDescription');
+        
+        const courseEnrollModal = document.getElementById('courseEnrollModal');
+        const closeCourseModal = document.getElementById('closeCourseModal');
+        const courseEnrollInfo = document.getElementById('courseEnrollInfo');
+        const courseEnrollTitle = document.getElementById('courseEnrollTitle');
+        const courseEnrollPrice = document.getElementById('courseEnrollPrice');
+        
+        const serviceDetailsModal = document.getElementById('serviceDetailsModal');
+        const closeServiceModal = document.getElementById('closeServiceModal');
+        const serviceModalIcon = document.getElementById('serviceModalIcon');
+        const serviceModalTitle = document.getElementById('serviceModalTitle');
+        const serviceModalDescription = document.getElementById('serviceModalDescription');
+        const serviceModalContent = document.getElementById('serviceModalContent');
+        const contactForServiceBtn = document.getElementById('contactForServiceBtn');
+        
+        const legalModal = document.getElementById('legalModal');
+        const closeLegalModal = document.getElementById('closeLegalModal');
+        const legalModalIcon = document.getElementById('legalModalIcon');
+        const legalModalTitle = document.getElementById('legalModalTitle');
+        const legalModalDescription = document.getElementById('legalModalDescription');
+        const legalModalContent = document.getElementById('legalModalContent');
+        
+        // Course Data
+        const courseData = {
+            'ai-development': {
+                title: 'AI Development Mastery',
+                price: '₦2,000,000',
+                description: 'Master artificial intelligence, machine learning, and deep learning'
+            },
+            'programming': {
+                title: 'Professional Programming',
+                price: '₦10,000,000',
+                description: 'Comprehensive programming course covering full-stack development'
+            },
+            'marketing': {
+                title: 'Digital Marketing',
+                price: '₦500,000',
+                description: 'Learn SEO, social media marketing, and content strategy'
+            }
+        };
+        
+        // Service Data
+        const serviceDetails = {
+            'ai-website': {
+                icon: '⚡',
+                title: 'AI Website Generator',
+                description: 'Create stunning websites in minutes using our advanced AI technology.',
+                features: [
+                    'AI-powered website generation based on your requirements',
+                    'No coding skills required - completely user-friendly',
+                    'Multiple design templates and layouts',
+                    'Mobile-responsive designs out of the box',
+                    'SEO-optimized structure',
+                    'Customizable color schemes and fonts',
+                    'Fast deployment with one-click hosting'
+                ],
+                process: [
+                    'Describe your website needs',
+                    'AI generates multiple design options',
+                    'Select and customize your preferred design',
+                    'Add your content and images',
+                    'Review and publish instantly'
+                ],
+                time: '5-10 minutes for basic websites'
+            },
+            'custom-design': {
+                icon: '🎨',
+                title: 'Custom Web Design',
+                description: 'Work with our expert designers to craft a unique website that perfectly represents your brand.',
+                features: [
+                    'One-on-one consultation with expert designers',
+                    'Custom design mockups and prototypes',
+                    'Brand identity integration',
+                    'User experience optimization',
+                    'Responsive design for all devices',
+                    'Up to 3 rounds of revisions',
+                    'Pixel-perfect implementation'
+                ],
+                process: [
+                    'Initial consultation and requirements gathering',
+                    'Design concept creation',
+                    'Client feedback and revisions',
+                    'Final design approval',
+                    'Development handoff'
+                ],
+                time: '2-3 weeks depending on complexity'
+            },
+            'web-development': {
+                icon: '💻',
+                title: 'Web Development',
+                description: 'Full-stack development services to bring your ideas to life with clean, efficient code.',
+                features: [
+                    'Front-end development with modern frameworks',
+                    'Back-end development with scalable architecture',
+                    'Database design and optimization',
+                    'API development and integration',
+                    'Performance optimization',
+                    'Security implementation',
+                    'Quality assurance and testing'
+                ],
+                process: [
+                    'Technical requirements analysis',
+                    'Architecture planning',
+                    'Development sprints',
+                    'Testing and quality assurance',
+                    'Deployment and maintenance'
+                ],
+                time: '4-6 weeks for standard projects'
+            },
+            'ecommerce': {
+                icon: '🛒',
+                title: 'E-commerce Solutions',
+                description: 'Launch your online store with powerful features and seamless payment integration.',
+                features: [
+                    'Product catalog management',
+                    'Shopping cart and checkout system',
+                    'Payment gateway integration (Stripe, PayPal, etc.)',
+                    'Inventory management',
+                    'Order tracking system',
+                    'Customer account management',
+                    'Sales analytics dashboard'
+                ],
+                process: [
+                    'E-commerce strategy planning',
+                    'Store design and development',
+                    'Payment integration',
+                    'Product upload and configuration',
+                    'Testing and launch'
+                ],
+                time: '3-4 weeks for standard stores'
+            },
+            'seo': {
+                icon: '📈',
+                title: 'SEO Optimization',
+                description: 'Boost your online visibility with our proven SEO strategies and techniques.',
+                features: [
+                    'Technical SEO audit',
+                    'Keyword research and strategy',
+                    'On-page optimization',
+                    'Content optimization',
+                    'Backlink analysis',
+                    'Local SEO optimization',
+                    'Monthly performance reports'
+                ],
+                process: [
+                    'Website SEO audit',
+                    'Strategy development',
+                    'Implementation of optimizations',
+                    'Content optimization',
+                    'Performance monitoring'
+                ],
+                time: 'Ongoing service with visible results in 3-6 months'
+            },
+            'maintenance': {
+                icon: '🔧',
+                title: 'Maintenance & Support',
+                description: 'Keep your website running smoothly with our ongoing maintenance and support services.',
+                features: [
+                    'Regular security updates',
+                    'Performance monitoring',
+                    'Backup management',
+                    'Technical support',
+                    'Content updates',
+                    'Plugin/theme updates',
+                    'Emergency support'
+                ],
+                process: [
+                    'Initial website assessment',
+                    'Maintenance plan creation',
+                    'Regular checkups and updates',
+                    'Performance reporting',
+                    '24/7 support availability'
+                ],
+                time: 'Ongoing monthly service'
+            }
+        };
+        
+        // Legal Data
+        const legalDetails = {
+            'privacy': {
+                icon: '🔒',
+                title: 'Privacy Policy',
+                description: 'We respect your privacy and protect your personal information.',
+                content: `
+                    <div class="legal-item">
+                        <div class="legal-icon">🔒</div>
+                        <div class="legal-content">
+                            <h4 class="legal-title">Privacy Policy</h4>
+                            <p class="legal-description">
+                                We respect your privacy. Any information you share with us is used only to provide our services and is never sold or shared without consent.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="mt-4 text-sm text-gray-600">
+                        <p class="mb-2">Your privacy is important to us. We:</p>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>Collect only necessary information for service delivery</li>
+                            <li>Use secure methods to protect your data</li>
+                            <li>Never sell or share your information with third parties</li>
+                            <li>Allow you to request data deletion at any time</li>
+                            <li>Follow best practices for data protection</li>
+                        </ul>
+                    </div>
+                `
+            },
+            'terms': {
+                icon: '📄',
+                title: 'Terms of Service',
+                description: 'Our terms and conditions for using our services.',
+                content: `
+                    <div class="legal-item">
+                        <div class="legal-icon">📄</div>
+                        <div class="legal-content">
+                            <h4 class="legal-title">Terms of Service</h4>
+                            <p class="legal-description">
+                                By using our website or services, you agree to our terms, payment structure, and project delivery process as outlined in our agreements.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="mt-4 text-sm text-gray-600">
+                        <p class="mb-2">Key terms include:</p>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>Payment terms as outlined in project agreements</li>
+                            <li>Milestone-based delivery and approval process</li>
+                            <li>Intellectual property rights transfer upon full payment</li>
+                            <li>Client responsibilities for content provision</li>
+                            <li>Dispute resolution procedures</li>
+                            <li>Limitation of liability clauses</li>
+                        </ul>
+                    </div>
+                `
+            },
+            'cookie': {
+                icon: '🍪',
+                title: 'Cookie Policy',
+                description: 'How we use cookies to enhance your experience.',
+                content: `
+                    <div class="legal-item">
+                        <div class="legal-icon">🍪</div>
+                        <div class="legal-content">
+                            <h4 class="legal-title">Cookie Policy</h4>
+                            <p class="legal-description">
+                                We use cookies to improve website performance, analyze traffic, and enhance user experience. You can control cookies through your browser settings.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="mt-4 text-sm text-gray-600">
+                        <p class="mb-2">We use cookies for:</p>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>Essential website functionality</li>
+                            <li>Performance monitoring and optimization</li>
+                            <li>Traffic analysis and user behavior insights</li>
+                            <li>Personalized user experience</li>
+                            <li>Security and fraud prevention</li>
+                        </ul>
+                        <p class="mt-3">You can manage cookie preferences through your browser settings or using our cookie consent tool.</p>
+                    </div>
+                `
+            },
+            'gdpr': {
+                icon: '🇪🇺',
+                title: 'GDPR Compliance',
+                description: 'Our commitment to data protection regulations.',
+                content: `
+                    <div class="legal-item">
+                        <div class="legal-icon">🇪🇺</div>
+                        <div class="legal-content">
+                            <h4 class="legal-title">GDPR Compliance</h4>
+                            <p class="legal-description">
+                                We comply with GDPR standards and ensure that your personal data is collected, stored, and processed lawfully and securely.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="mt-4 text-sm text-gray-600">
+                        <p class="mb-2">Our GDPR commitments:</p>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>Lawful basis for data processing</li>
+                            <li>Transparent data collection practices</li>
+                            <li>Secure data storage and transfer</li>
+                            <li>Right to access, rectify, and delete data</li>
+                            <li>Data breach notification procedures</li>
+                            <li>Data protection impact assessments</li>
+                        </ul>
+                        <p class="mt-3">For GDPR-related inquiries, contact our Data Protection Officer at dpo@codelara.com</p>
+                    </div>
+                `
+            },
+            'licenses': {
+                icon: '🧾',
+                title: 'Licenses',
+                description: 'Information about our licensing and intellectual property.',
+                content: `
+                    <div class="legal-item">
+                        <div class="legal-icon">🧾</div>
+                        <div class="legal-content">
+                            <h4 class="legal-title">Licenses</h4>
+                            <p class="legal-description">
+                                All designs, code, and materials remain our property until full payment is completed, after which usage rights are transferred to the client.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="mt-4 text-sm text-gray-600">
+                        <p class="mb-2">License terms:</p>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>We retain ownership until final payment is received</li>
+                            <li>Upon full payment, usage rights transfer to client</li>
+                            <li>Source code ownership transfers as per agreement</li>
+                            <li>Third-party licenses remain with their respective owners</li>
+                            <li>We reserve the right to showcase work in our portfolio</li>
+                            <li>Proprietary code and frameworks remain our IP</li>
+                        </ul>
+                        <p class="mt-3">Specific licensing terms are detailed in each project agreement.</p>
+                    </div>
+                `
+            }
+        };
+        
+        // Plan names for contact modal
+        const planNames = {
+            'starter': 'Starter System (₦500,000)',
+            'growth': 'Growth System (₦2,000,000 - ₦3,000,000)',
+            'enterprise': 'Enterprise System (₦10,000,000)'
+        };
+        
+        // Modal Functions
+        function showAiFeaturesModal() {
+            aiFeaturesModal.classList.add('active');
+            disableBodyScroll();
+        }
+        
+        function hideAiFeaturesModal() {
+            aiFeaturesModal.classList.remove('active');
+            enableBodyScroll();
+        }
+        
+        function showComingSoonModal() {
+            comingSoonModal.classList.add('active');
+            disableBodyScroll();
+        }
+        
+        function hideComingSoonModal() {
+            comingSoonModal.classList.remove('active');
+            enableBodyScroll();
+        }
+        
+        function showSocialMediaModal(plan = null) {
+            socialMediaModal.classList.add('active');
+            disableBodyScroll();
+            
+            // Update modal title if a plan is selected
+            if (plan && planNames[plan]) {
+                socialModalTitle.textContent = `Contact Us About ${planNames[plan]}`;
+                socialModalDescription.textContent = 'Choose how you\'d like to contact us about this plan. Our team is ready to discuss your requirements.';
+            } else {
+                socialModalTitle.textContent = 'Contact Our Team';
+                socialModalDescription.textContent = 'Choose how you\'d like to contact us. Our team is available to discuss your project requirements.';
+            }
+        }
+        
+        function hideSocialMediaModal() {
+            socialMediaModal.classList.remove('active');
+            enableBodyScroll();
+        }
+        
+        function showCourseEnrollModal(courseId) {
+            const course = courseData[courseId];
+            if (course) {
+                courseEnrollTitle.textContent = course.title;
+                courseEnrollPrice.textContent = course.price;
+                
+                // Update course info
+                courseEnrollInfo.innerHTML = `
+                    <h4 class="course-enroll-title">${course.title}</h4>
+                    <div class="course-enroll-price">${course.price}</div>
+                    <p class="text-gray-600 text-sm mt-2">${course.description}</p>
+                `;
+                
+                courseEnrollModal.classList.add('active');
+                disableBodyScroll();
+            }
+        }
+        
+        function hideCourseEnrollModal() {
+            courseEnrollModal.classList.remove('active');
+            enableBodyScroll();
+        }
+        
+        function showServiceDetailsModal(serviceId) {
+            const service = serviceDetails[serviceId];
+            if (service) {
+                serviceModalIcon.textContent = service.icon;
+                serviceModalTitle.textContent = service.title;
+                serviceModalDescription.textContent = service.description;
+                
+                // Build service details content
+                let contentHtml = `
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="font-sora font-semibold text-gray-900 mb-3">Key Features</h4>
+                            <ul class="space-y-2">
+                                ${service.features.map(feature => `
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-purple-primary mt-1">✓</span>
+                                        <span class="text-gray-600">${feature}</span>
+                                    </li>
+                                `).join('')}
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-sora font-semibold text-gray-900 mb-3">Our Process</h4>
+                            <ol class="space-y-2">
+                                ${service.process.map((step, index) => `
+                                    <li class="flex items-start gap-2">
+                                        <span class="w-6 h-6 rounded-full bg-purple-primary text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">${index + 1}</span>
+                                        <span class="text-gray-600">${step}</span>
+                                    </li>
+                                `).join('')}
+                            </ol>
+                        </div>
+                        
+                        <div class="bg-purple-50 rounded-xl p-4 border border-purple-100">
+                            <div class="flex items-center gap-3">
+                                <div class="text-purple-primary text-xl">⏱️</div>
+                                <div>
+                                    <h5 class="font-sora font-semibold text-gray-900 mb-1">Timeline</h5>
+                                    <p class="text-gray-600 text-sm">${service.time}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                serviceModalContent.innerHTML = contentHtml;
+                
+                // Update contact button to use this service
+                contactForServiceBtn.setAttribute('data-service', serviceId);
+                
+                serviceDetailsModal.classList.add('active');
+                disableBodyScroll();
+            }
+        }
+        
+        function hideServiceDetailsModal() {
+            serviceDetailsModal.classList.remove('active');
+            enableBodyScroll();
+        }
+        
+        function showLegalModal(legalId) {
+            const legal = legalDetails[legalId];
+            if (legal) {
+                legalModalIcon.textContent = legal.icon;
+                legalModalTitle.textContent = legal.title;
+                legalModalDescription.textContent = legal.description;
+                legalModalContent.innerHTML = legal.content;
+                
+                legalModal.classList.add('active');
+                disableBodyScroll();
+            }
+        }
+        
+        function hideLegalModal() {
+            legalModal.classList.remove('active');
+            enableBodyScroll();
+        }
+        
+        // Scroll management
+        function disableBodyScroll() {
+            document.body.style.overflow = 'hidden';
+            document.body.style.touchAction = 'none';
+        }
+        
+        function enableBodyScroll() {
+            document.body.style.overflow = '';
+            document.body.style.touchAction = '';
+        }
+        
+        // Copy to clipboard function
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                // Show success feedback
+                const event = new CustomEvent('copied', { detail: text });
+                document.dispatchEvent(event);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = text;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                
+                const event = new CustomEvent('copied', { detail: text });
+                document.dispatchEvent(event);
+            });
+        }
+        
+        // Format Nigerian Naira
+        function formatNaira(amount) {
+            return '₦' + amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+        
+        // Smooth scroll handler
+        function handleSmoothScroll(e, href) {
+            e.preventDefault();
+            const target = document.querySelector(href);
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+        
+        // Event Listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            // Create particles
+            createParticles();
+            
+            // Start counter animations
+            setTimeout(animateCounters, 1000);
+            
+            // Add scroll indicator animation
+            const scrollIndicator = document.querySelector('.scroll-indicator');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 100) {
+                    scrollIndicator.style.opacity = '0';
+                } else {
+                    scrollIndicator.style.opacity = '1';
+                }
+            });
+            
+            // Enhanced button hover effects
+            const buttons = document.querySelectorAll('button');
+            buttons.forEach(button => {
+                button.addEventListener('mouseenter', (e) => {
+                    const ripple = document.createElement('span');
+                    const rect = button.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height);
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+                    
+                    ripple.style.cssText = `
+                        position: absolute;
+                        border-radius: 50%;
+                        background: rgba(255, 255, 255, 0.3);
+                        transform: scale(0);
+                        animation: ripple 0.6s linear;
+                        width: ${size}px;
+                        height: ${size}px;
+                        left: ${x}px;
+                        top: ${y}px;
+                        pointer-events: none;
+                    `;
+                    
+                    button.appendChild(ripple);
+                    
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 600);
+                });
+            });
+            
+            // Parallax effect for floating shapes
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const shapes = document.querySelectorAll('.floating-shape');
+                
+                shapes.forEach((shape, index) => {
+                    const rate = scrolled * (0.3 - (index * 0.05));
+                    shape.style.transform = `translateY(${rate}px)`;
+                });
+            });
+            
+            // Navbar scroll effect
+            window.addEventListener('scroll', () => {
+                navbarShadow = window.scrollY > 50;
+                if (navbarShadow) {
+                    navbar.classList.add('shadow-lg', 'shadow-gray-200/50');
+                } else {
+                    navbar.classList.remove('shadow-lg', 'shadow-gray-200/50');
+                }
+            });
+            
+            // Smooth scroll for navigation links
+            document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', (e) => {
+                    const href = anchor.getAttribute('href');
+                    handleSmoothScroll(e, href);
+                });
+            });
+            
+            // AI View toggle - shows detailed AI features modal
+            useAiBtn.addEventListener('click', () => {
+                showAiFeaturesModal();
+            });
+            
+            // Hire Team Button
+            hireTeamBtn.addEventListener('click', () => {
+                showSocialMediaModal();
+            });
+            
+            // Free Strategy Call Button
+            freeStrategyCallBtn.addEventListener('click', () => {
+                showSocialMediaModal();
+            });
+            
+            // Close AI modal
+            closeAiModal.addEventListener('click', hideAiFeaturesModal);
+            
+            // Close social media modal
+            closeSocialModal.addEventListener('click', hideSocialMediaModal);
+            
+            // Close course enroll modal
+            closeCourseModal.addEventListener('click', hideCourseEnrollModal);
+            
+            // Close service details modal
+            closeServiceModal.addEventListener('click', hideServiceDetailsModal);
+            
+            // Close legal modal
+            closeLegalModal.addEventListener('click', hideLegalModal);
+            
+            // Close modal when clicking outside
+            aiFeaturesModal.addEventListener('click', (e) => {
+                if (e.target === aiFeaturesModal) {
+                    hideAiFeaturesModal();
+                }
+            });
+            
+            comingSoonModal.addEventListener('click', (e) => {
+                if (e.target === comingSoonModal) {
+                    hideComingSoonModal();
+                }
+            });
+            
+            socialMediaModal.addEventListener('click', (e) => {
+                if (e.target === socialMediaModal) {
+                    hideSocialMediaModal();
+                }
+            });
+            
+            courseEnrollModal.addEventListener('click', (e) => {
+                if (e.target === courseEnrollModal) {
+                    hideCourseEnrollModal();
+                }
+            });
+            
+            serviceDetailsModal.addEventListener('click', (e) => {
+                if (e.target === serviceDetailsModal) {
+                    hideServiceDetailsModal();
+                }
+            });
+            
+            legalModal.addEventListener('click', (e) => {
+                if (e.target === legalModal) {
+                    hideLegalModal();
+                }
+            });
+            
+            // Close modals with Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    if (aiFeaturesModal.classList.contains('active')) {
+                        hideAiFeaturesModal();
+                    }
+                    if (comingSoonModal.classList.contains('active')) {
+                        hideComingSoonModal();
+                    }
+                    if (socialMediaModal.classList.contains('active')) {
+                        hideSocialMediaModal();
+                    }
+                    if (courseEnrollModal.classList.contains('active')) {
+                        hideCourseEnrollModal();
+                    }
+                    if (serviceDetailsModal.classList.contains('active')) {
+                        hideServiceDetailsModal();
+                    }
+                    if (legalModal.classList.contains('active')) {
+                        hideLegalModal();
+                    }
+                }
+            });
+            
+            // Close coming soon modal buttons
+            closeModal.addEventListener('click', hideComingSoonModal);
+            confirmCloseModal.addEventListener('click', hideComingSoonModal);
+            
+            // Social media option click handlers
+            document.querySelectorAll('.social-option').forEach(option => {
+                option.addEventListener('click', (e) => {
+                    // Remove selected class from all options
+                    document.querySelectorAll('.social-option').forEach(opt => opt.classList.remove('selected'));
+                    // Add selected class to clicked option
+                    option.classList.add('selected');
+                    
+                    const platform = option.getAttribute('data-platform');
+                    const number = option.getAttribute('data-number');
+                    
+                    // Open chat based on platform
+                    if (platform === 'whatsapp') {
+                        window.open(`https://wa.me/${number}`, '_blank');
+                    } else if (platform === 'telegram') {
+                        window.open(`https://t.me/${number}`, '_blank');
+                    }
+                    
+                    // Hide modal after a short delay
+                    setTimeout(() => {
+                        if (socialMediaModal.classList.contains('active')) {
+                            hideSocialMediaModal();
+                        }
+                        if (courseEnrollModal.classList.contains('active')) {
+                            hideCourseEnrollModal();
+                        }
+                    }, 300);
+                });
+            });
+            
+            // Copy button handlers
+            document.querySelectorAll('.copy-btn').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    e.stopPropagation(); // Prevent triggering parent click
+                    const number = button.getAttribute('data-number');
+                    copyToClipboard(number);
+                    
+                    // Visual feedback
+                    const originalText = button.textContent;
+                    button.textContent = 'Copied!';
+                    button.classList.add('copied');
+                    
+                    setTimeout(() => {
+                        button.textContent = originalText;
+                        button.classList.remove('copied');
+                    }, 2000);
+                });
+            });
+            
+            // Learn More button handlers for services
+            learnMoreBtns.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const serviceId = button.getAttribute('data-service');
+                    showServiceDetailsModal(serviceId);
+                });
+            });
+            
+            // Enroll button handlers for courses
+            enrollBtns.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const courseId = button.getAttribute('data-course');
+                    const price = button.getAttribute('data-price');
+                    showCourseEnrollModal(courseId);
+                });
+            });
+            
+            // Contact for service button
+            contactForServiceBtn.addEventListener('click', () => {
+                const serviceId = contactForServiceBtn.getAttribute('data-service');
+                hideServiceDetailsModal();
+                setTimeout(() => {
+                    showSocialMediaModal();
+                }, 300);
+            });
+            
+            // FAQ toggle
+            faqQuestions.forEach((question, index) => {
+                question.addEventListener('click', () => {
+                    const answer = faqAnswers[index];
+                    const icon = faqIcons[index];
+                    
+                    if (activeFaq === index) {
+                        answer.style.maxHeight = '0';
+                        icon.classList.remove('rotate-45');
+                        activeFaq = null;
+                    } else {
+                        // Close any open FAQ
+                        if (activeFaq !== null) {
+                            faqAnswers[activeFaq].style.maxHeight = '0';
+                            faqIcons[activeFaq].classList.remove('rotate-45');
+                        }
+                        
+                        answer.style.maxHeight = answer.scrollHeight + 'px';
+                        icon.classList.add('rotate-45');
+                        activeFaq = index;
+                    }
+                });
+            });
+            
+            // Legal link handlers
+            legalLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const legalId = link.getAttribute('data-legal');
+                    showLegalModal(legalId);
+                });
+            });
+            
+            // Get Started button
+            getStartedBtn.addEventListener('click', () => {
+                showSocialMediaModal();
+            });
+            
+            // Pricing buttons - show social media modal for WhatsApp/Telegram selection
+            pricingBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const plan = btn.getAttribute('data-plan');
+                    showSocialMediaModal(plan);
+                });
+            });
+            
+            // Pricing enterprise button
+            pricingEnterpriseBtn.addEventListener('click', () => {
+                const plan = pricingEnterpriseBtn.getAttribute('data-plan');
+                showSocialMediaModal(plan);
+            });
+            
+            // Email notification button
+            if (notifyMeBtn) {
+                notifyMeBtn.addEventListener('click', () => {
+                    if (emailInput && emailInput.value) {
+                        alert('Thank you! We\'ll notify you when we launch.');
+                        emailInput.value = '';
+                        hideAiFeaturesModal();
+                    } else {
+                        alert('Please enter your email address.');
+                    }
+                });
+            }
+            
+            // Copy success event listener
+            document.addEventListener('copied', (e) => {
+                const number = e.detail;
+                console.log(`Copied: ${number}`);
+            });
+            
+            // Touch handling for mobile swipe to close
+            aiFeaturesModal.addEventListener('touchstart', (e) => {
+                touchStartY = e.touches[0].clientY;
+            }, { passive: true });
+            
+            aiFeaturesModal.addEventListener('touchmove', (e) => {
+                touchEndY = e.touches[0].clientY;
+                
+                // Prevent body scroll when modal is open
+                if (aiFeaturesModal.classList.contains('active')) {
+                    e.preventDefault();
+                }
+            }, { passive: false });
+            
+            // Close modal on swipe down (mobile gesture)
+            aiFeaturesModal.addEventListener('touchend', (e) => {
+                if (touchStartY - touchEndY > 100) { // Swipe down detected
+                    hideAiFeaturesModal();
+                }
+            }, { passive: true });
+            
+            // Handle window resize for better responsiveness
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(() => {
+                    // Reset any open FAQ max-height
+                    if (activeFaq !== null) {
+                        const answer = faqAnswers[activeFaq];
+                        answer.style.maxHeight = answer.scrollHeight + 'px';
+                    }
+                }, 250);
+            });
+        });
+    </script>
+</body>
+</html>
